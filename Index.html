@@ -14,3 +14,59 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon ressenti - FCF91 U15F</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form-container">
+
+    <img src="logo.png" class="small-logo" alt="Logo">
+
+    <h1>Mon ressenti</h1>
+
+    <form>
+
+        <label>Nom de la joueuse</label>
+        <input type="text" placeholder="Nom">
+
+        <label>Prénom de la joueuse</label>
+        <input type="text" placeholder="Prénom">
+
+        <label>Humeur du jour</label>
+        <input type="range" min="1" max="5" value="3">
+
+        <label>Qualité du sommeil</label>
+        <input type="range" min="" max="5" value="3">
+
+        <label>Ressenti de l'effort</label>
+        <input type="range" min="0" max="10" value="3">
+
+        <label>Douleur ou gêne physique ?</label>
+        <select>
+            <option>Non</option>
+            <option>Oui</option>
+        </select>
+
+        <label>Quel facteur t'a limité pour aller plus vite / plus loin ?</label>
+        <select>
+            <option>Mes muscles brûlaient / trop lourds</option>
+            <option>Trop essoufflée / mon coeur battait trop vite</option>
+            <option>Les deux de manière égale</option>
+            <option>Aucun</option>
+        </select>
+
+        <button type="submit" class="btn">Envoyer</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
