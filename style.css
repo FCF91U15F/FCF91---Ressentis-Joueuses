@@ -1,40 +1,40 @@
+/* =========================
+   STYLE GLOBAL
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+html, body {
+    width: 100%;
+    min-height: 100%;
     font-family: 'Oswald', sans-serif;
     background: #050505;
     color: white;
     overflow-x: hidden;
-    overflow-y: auto;
-    min-height: 100vh;
 }
+
+body {
+    background:
+        radial-gradient(circle at center, rgba(200,16,46,0.35) 0%, rgba(0,0,0,0.95) 60%),
+        linear-gradient(180deg, #050505 0%, #000000 100%);
+}
+
+/* =========================
+   PAGE D'ACCUEIL
+========================= */
 
 .hero {
     position: relative;
     width: 100%;
     height: 100vh;
-    background:
-        radial-gradient(circle at center, rgba(200,16,46,0.45) 0%, rgba(0,0,0,0.95) 55%),
-        radial-gradient(circle at top left, rgba(255,0,40,0.18) 0%, transparent 40%),
-        radial-gradient(circle at bottom right, rgba(180,0,30,0.15) 0%, transparent 45%),
-        linear-gradient(180deg, #050505 0%, #000000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-}
-
-/* Effet fumée rouge */
-.hero::before,
-.hero::after {
-    content: '';
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.25;
 }
 
 .hero::before {
@@ -71,27 +71,25 @@ body {
     position: relative;
     z-index: 2;
     text-align: center;
-    animation: fadeIn 1.2s ease;
+    animation: fadeIn 1s ease;
 }
 
-h1 {
-    font-size: 4.2rem;
+.content h1 {
+    font-size: 4rem;
     letter-spacing: 4px;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
     text-transform: uppercase;
-    font-weight: 700;
-    text-shadow: 0 0 20px rgba(255,255,255,0.08);
 }
 
-h1 span {
+.content h1 span {
     color: #c8102e;
 }
 
 .logo {
-    width: 360px;
+    width: 340px;
     max-width: 80%;
-    margin-bottom: 45px;
-    filter: drop-shadow(0 0 30px rgba(200,16,46,0.45));
+    margin-bottom: 40px;
+    filter: drop-shadow(0 0 25px rgba(200,16,46,0.5));
     transition: transform 0.3s ease;
 }
 
@@ -99,26 +97,104 @@ h1 span {
     transform: scale(1.03);
 }
 
+/* =========================
+   BOUTONS
+========================= */
+
 .btn {
     display: inline-block;
-    padding: 18px 48px;
-    border: 2px solid #c8102e;
+    padding: 16px 42px;
     border-radius: 14px;
+    border: 2px solid #c8102e;
+    background: rgba(0,0,0,0.55);
     color: white;
     text-decoration: none;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    letter-spacing: 2px;
-    background: rgba(0,0,0,0.55);
-    box-shadow: 0 0 25px rgba(200,16,46,0.35);
+    letter-spacing: 1px;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .btn:hover {
     background: #c8102e;
-    box-shadow: 0 0 35px rgba(200,16,46,0.8);
-    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(200,16,46,0.8);
+    transform: translateY(-2px);
 }
+
+/* =========================
+   PAGE MON RESSENTI
+========================= */
+
+.form-page {
+    min-height: 100vh;
+    padding: 50px 0;
+}
+
+.form-container {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(10,10,10,0.92);
+    border: 1px solid rgba(200,16,46,0.35);
+    border-radius: 22px;
+    padding: 35px;
+    box-shadow: 0 0 35px rgba(200,16,46,0.18);
+}
+
+.small-logo {
+    width: 110px;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.form-container h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 28px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    background: #111;
+    color: white;
+    font-size: 1rem;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: #c8102e;
+}
+
+.form-container .btn {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
 
 @keyframes fadeIn {
     from {
@@ -131,70 +207,26 @@ h1 span {
     }
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 768px) {
-    h1 {
+
+    .content h1 {
         font-size: 2.6rem;
     }
 
     .logo {
-        width: 260px;
+        width: 240px;
     }
 
-    .btn {
-        font-size: 1rem;
-        padding: 16px 34px;
+    .form-container {
+        width: 94%;
+        padding: 25px;
     }
-}
-.form-container {
-    width: 90%;
-    max-width: 700px;
-    margin: 60px auto;
-    background: rgba(10,10,10,0.92);
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid rgba(200,16,46,0.4);
-    box-shadow: 0 0 30px rgba(200,16,46,0.2);
-}
 
-.small-logo {
-    width: 120px;
-    display: block;
-    margin: 0 auto 20px;
-}
-
-.form-container h1 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-label {
-    display: block;
-    margin: 20px 0 8px;
-    font-size: 1.1rem;
-}
-
-input[type="text"],
-select,
-textarea {
-    width: 100%;
-    padding: 14px;
-    border-radius: 10px;
-    border: 1px solid #333;
-    background: #111;
-    color: white;
-    font-size: 1rem;
-}
-
-input[type="range"] {
-    width: 100%;
-}
-
-textarea {
-    resize: vertical;
-}
-
-.form-container .btn {
-    width: 100%;
-    margin-top: 30px;
-    text-align: center;
+    .form-container h1 {
+        font-size: 1.8rem;
+    }
 }
