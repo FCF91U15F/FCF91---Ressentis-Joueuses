@@ -8,7 +8,9 @@ body {
     font-family: 'Oswald', sans-serif;
     background: #050505;
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
 }
 
 .hero {
@@ -143,50 +145,56 @@ h1 span {
         padding: 16px 34px;
     }
 }
-.form-container{
-    width:90%;
-    max-width:700px;
-    margin:40px auto;
-    background:rgba(10,10,10,0.9);
-    padding:40px;
-    border-radius:20px;
-    border:1px solid rgba(200,16,46,0.4);
-    box-shadow:0 0 30px rgba(200,16,46,0.2);
+.form-container {
+    width: 90%;
+    max-width: 700px;
+    margin: 60px auto;
+    background: rgba(10,10,10,0.92);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(200,16,46,0.4);
+    box-shadow: 0 0 30px rgba(200,16,46,0.2);
 }
 
-.small-logo{
-    width:120px;
-    display:block;
-    margin:0 auto 20px;
+.small-logo {
+    width: 120px;
+    display: block;
+    margin: 0 auto 20px;
 }
 
-.form-container h1{
-    text-align:center;
-    margin-bottom:30px;
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-label{
-    display:block;
-    margin:20px 0 8px;
-    font-size:1.1rem;
+label {
+    display: block;
+    margin: 20px 0 8px;
+    font-size: 1.1rem;
 }
 
 input[type="text"],
 select,
-textarea{
-    width:100%;
-    padding:14px;
-    border-radius:10px;
-    border:1px solid #333;
-    background:#111;
-    color:white;
-    font-size:1rem;
+textarea {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    background: #111;
+    color: white;
+    font-size: 1rem;
 }
 
-input[type="range"]{
-    width:100%;
+input[type="range"] {
+    width: 100%;
 }
 
-textarea{
-    resize:vertical;
+textarea {
+    resize: vertical;
+}
+
+.form-container .btn {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
 }
