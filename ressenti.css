@@ -1,1 +1,580 @@
+/* =========================================================
+   PAGE MON RESSENTI — FCF91 U15F
+   Fichier indépendant de la page d'accueil
+   ========================================================= */
 
+:root {
+    --fond: #050505;
+    --carte: #0b0b0b;
+    --champ: #111111;
+    --blanc: #ffffff;
+    --texte-secondaire: #c7c7c7;
+    --bordure: #3d3d3d;
+    --rouge: #d80b35;
+    --rouge-clair: #ef1747;
+}
+
+/* =========================================================
+   RÉINITIALISATION
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background: var(--fond);
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100%;
+    margin: 0;
+
+    color: var(--blanc);
+
+    background:
+        radial-gradient(
+            circle at 50% 4%,
+            rgba(216, 11, 53, 0.2),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #050505 0%,
+            #090304 48%,
+            #050505 100%
+        );
+
+    font-family: "Oswald", Arial, sans-serif;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+/* =========================================================
+   PAGE ET CONTENEUR
+   ========================================================= */
+
+.ressenti-page {
+    width: 100%;
+    min-height: 100vh;
+
+    padding:
+        max(24px, env(safe-area-inset-top))
+        16px
+        max(50px, env(safe-area-inset-bottom));
+}
+
+.ressenti-header,
+.ressenti-form {
+    width: min(100%, 760px);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.ressenti-form {
+    padding: clamp(20px, 4vw, 36px);
+
+    background: rgba(8, 8, 8, 0.96);
+
+    border: 1px solid rgba(216, 11, 53, 0.42);
+    border-radius: 25px;
+
+    box-shadow:
+        0 0 35px rgba(216, 11, 53, 0.12),
+        0 22px 60px rgba(0, 0, 0, 0.48);
+}
+
+/* =========================================================
+   EN-TÊTE
+   ========================================================= */
+
+.ressenti-header {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    text-align: center;
+}
+
+.back-button {
+    align-self: flex-start;
+
+    margin-bottom: 10px;
+
+    color: var(--texte-secondaire);
+
+    font-size: 16px;
+    font-weight: 500;
+
+    text-decoration: none;
+}
+
+.back-button:hover,
+.back-button:focus-visible {
+    color: var(--blanc);
+}
+
+.ressenti-logo {
+    display: block;
+
+    width: 92px;
+    height: 92px;
+
+    object-fit: contain;
+
+    margin-bottom: 10px;
+
+    filter:
+        drop-shadow(0 8px 12px rgba(0, 0, 0, 0.65))
+        drop-shadow(0 0 10px rgba(216, 11, 53, 0.28));
+}
+
+.ressenti-header h1 {
+    margin: 0;
+
+    color: var(--blanc);
+
+    font-size: clamp(31px, 8vw, 47px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.ressenti-header p {
+    margin: 10px 0 0;
+
+    color: var(--rouge-clair);
+
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.form-section {
+    margin: 0 0 46px;
+}
+
+.section-title {
+    display: block;
+
+    margin: 0 0 20px;
+
+    color: var(--blanc);
+
+    font-size: clamp(23px, 5.5vw, 31px);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* =========================================================
+   CHAMPS TEXTE, LISTES ET COMMENTAIRE
+   ========================================================= */
+
+.text-input,
+.select-input,
+.text-area {
+    display: block;
+
+    width: 100%;
+
+    padding: 17px 18px;
+
+    color: var(--blanc);
+    background: var(--champ);
+
+    border: 1px solid var(--bordure);
+    border-radius: 16px;
+
+    font-family: "Oswald", Arial, sans-serif;
+    font-size: 19px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.text-input:focus,
+.select-input:focus,
+.text-area:focus {
+    border-color: var(--rouge-clair);
+
+    box-shadow:
+        0 0 0 3px rgba(216, 11, 53, 0.14),
+        0 0 18px rgba(216, 11, 53, 0.16);
+}
+
+.text-input::placeholder,
+.text-area::placeholder {
+    color: #777777;
+}
+
+.select-input {
+    min-height: 62px;
+}
+
+.text-area {
+    min-height: 125px;
+    resize: vertical;
+}
+
+/* =========================================================
+   HUMEUR ET SOMMEIL
+   ========================================================= */
+
+.rating-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    width: 100%;
+
+    gap: clamp(7px, 2vw, 15px);
+
+    align-items: start;
+}
+
+.rating-choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 0;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.rating-choice input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Carré contenant uniquement le chiffre */
+
+.rating-square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    color: var(--blanc);
+    background: var(--champ);
+
+    border: 2px solid var(--rouge);
+    border-radius: 15px;
+
+    font-size: clamp(25px, 7vw, 41px);
+    font-weight: 700;
+    line-height: 1;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
+}
+
+/* Légende placée hors du carré */
+
+.rating-label {
+    display: block;
+
+    width: 100%;
+    min-height: 42px;
+
+    margin-top: 10px;
+
+    color: var(--texte-secondaire);
+
+    font-size: clamp(11px, 2.8vw, 16px);
+    font-weight: 400;
+    line-height: 1.15;
+    text-align: center;
+
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+/* Bouton sélectionné */
+
+.rating-choice input:checked + .rating-square {
+    background: var(--rouge);
+    border-color: var(--rouge-clair);
+
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+        0 0 20px rgba(216, 11, 53, 0.62);
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   RPE
+   ========================================================= */
+
+.rpe-display {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin: 0 0 27px;
+
+    color: var(--blanc);
+
+    font-size: clamp(39px, 10vw, 57px);
+    font-weight: 700;
+    line-height: 1;
+}
+
+/*
+   Grille de douze colonnes :
+
+   Ligne 1 :
+   0 1 2 3 4 5
+
+   Ligne 2 centrée :
+   6 7 8 9 10
+*/
+
+.rpe-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+
+    width: 100%;
+
+    gap: clamp(8px, 2vw, 15px);
+
+    align-items: center;
+}
+
+/* Tous les boutons occupent deux colonnes */
+
+.rpe-choice {
+    grid-column: span 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    aspect-ratio: 1 / 1;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Décalage du bouton 6 pour centrer la seconde ligne */
+
+.rpe-choice:nth-child(7) {
+    grid-column: 2 / span 2;
+}
+
+.rpe-choice input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+.rpe-choice span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    color: var(--blanc);
+    background: var(--champ);
+
+    border: 2px solid #666666;
+    border-radius: 15px;
+
+    font-size: clamp(24px, 6vw, 38px);
+    font-weight: 700;
+    line-height: 1;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
+}
+
+/* Sélection RPE neutre avant le clic, rouge après sélection */
+
+.rpe-choice input:checked + span {
+    background: var(--rouge);
+    border-color: var(--rouge-clair);
+
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+        0 0 20px rgba(216, 11, 53, 0.62);
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   BOUTON ENVOYER
+   ========================================================= */
+
+.submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 68px;
+
+    margin-top: 8px;
+    padding: 17px 24px;
+
+    color: var(--blanc);
+    background: #070707;
+
+    border: 2px solid var(--rouge-clair);
+    border-radius: 18px;
+
+    font-family: "Oswald", Arial, sans-serif;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px rgba(216, 11, 53, 0.25);
+
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.submit-button:hover,
+.submit-button:focus-visible {
+    background: var(--rouge);
+
+    box-shadow:
+        0 0 24px rgba(216, 11, 53, 0.58);
+
+    outline: none;
+    transform: translateY(-2px);
+}
+
+.submit-button:active {
+    transform: scale(0.985);
+}
+
+.form-message {
+    min-height: 24px;
+
+    margin: 15px 0 0;
+
+    color: var(--texte-secondaire);
+
+    font-size: 16px;
+    text-align: center;
+}
+
+/* =========================================================
+   PETITS TÉLÉPHONES
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    .ressenti-page {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .ressenti-form {
+        padding: 22px 13px;
+
+        border-radius: 20px;
+    }
+
+    .form-section {
+        margin-bottom: 41px;
+    }
+
+    .rating-grid {
+        gap: 6px;
+    }
+
+    .rating-square {
+        border-radius: 12px;
+    }
+
+    .rating-label {
+        min-height: 37px;
+
+        margin-top: 8px;
+
+        font-size: 11px;
+    }
+
+    .rpe-grid {
+        gap: 7px;
+    }
+
+    .rpe-choice span {
+        border-radius: 12px;
+    }
+}
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+   ========================================================= */
+
+@media (max-width: 350px) {
+
+    .ressenti-form {
+        padding-right: 9px;
+        padding-left: 9px;
+    }
+
+    .rating-grid {
+        gap: 4px;
+    }
+
+    .rating-square,
+    .rpe-choice span {
+        border-width: 1.5px;
+        border-radius: 10px;
+    }
+
+    .rating-label {
+        font-size: 9.5px;
+    }
+
+    .rpe-grid {
+        gap: 5px;
+    }
+}
