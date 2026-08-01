@@ -1,101 +1,181 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon ressenti - FCF91 U15F</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon ressenti - FCF91 U15F</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="form-page">
 
 <div class="form-container">
 
-    <img src="logo.png" class="small-logo" alt="Logo">
+  <img src="logo.png" alt="Logo FC Fleury 91" class="small-logo">
 
-    <h1>Mon ressenti</h1>
+  <h1>MON RESSENTI</h1>
 
-    <form>
+  <form id="ressentiForm">
 
-        <label>Nom de la joueuse</label>
-        <input type="text" placeholder="Nom">
+```
+<div class="form-group">
+  <label>Prénom de la joueuse</label>
+  <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+</div>
 
-        <label>Prénom de la joueuse</label>
-        <input type="text" placeholder="Prénom">
-
-        <div class="form-group">
+<!-- Humeur -->
+<div class="form-group">
   <label>Humeur du jour</label>
 
-  <div class="rating">
-    <label><input type="radio" name="humeur" value="1" required><span>1</span></label>
-    <label><input type="radio" name="humeur" value="2"><span>2</span></label>
-    <label><input type="radio" name="humeur" value="3"><span>3</span></label>
-    <label><input type="radio" name="humeur" value="4"><span>4</span></label>
-    <label><input type="radio" name="humeur" value="5"><span>5</span></label>
-  </div>
+  <div class="ratings" id="humeurGroup">
 
-  <div class="rating-legend">
-    <span>Très mauvaise</span>
-    <span>Mauvaise</span>
-    <span>Moyenne</span>
-    <span>Bonne</span>
-    <span>Excellente</span>
+    <label class="option selected">
+      <input type="radio" name="humeur" value="1" required>
+      <div class="value">1</div>
+      <div class="emoji">😢</div>
+      <div class="legend">Très mauvaise</div>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="humeur" value="2">
+      <div class="value">2</div>
+      <div class="emoji">🙁</div>
+      <div class="legend">Mauvaise</div>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="humeur" value="3">
+      <div class="value">3</div>
+      <div class="emoji">😐</div>
+      <div class="legend">Moyenne</div>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="humeur" value="4">
+      <div class="value">4</div>
+      <div class="emoji">🙂</div>
+      <div class="legend">Bonne</div>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="humeur" value="5">
+      <div class="value">5</div>
+      <div class="emoji">🤩</div>
+      <div class="legend">Excellente</div>
+    </label>
+
   </div>
 </div>
 
-        <label>Qualité du sommeil</label>
-        <input type="range" min="" max="5" value="3">
+<!-- Sommeil -->
+<div class="form-group">
+  <label>Qualité du sommeil</label>
 
-        <div class="form-group">
-    <label for="effort">Ressenti de l'effort (RPE)</label>
+  <div class="ratings" id="sommeilGroup">
 
-    <div class="rpe-value" id="rpeValue">5 / 10</div>
+    <label class="option selected">
+      <input type="radio" name="sommeil" value="1" required>
+      <div class="value">1</div>
+      <div class="emoji">😴</div>
+      <div class="legend">Très mauvais</div>
+    </label>
 
-    <input type="range"
-           id="effort"
-           name="effort"
-           min="0"
-           max="10"
-           step="1"
-           value="5"
-           oninput="updateRPE(this.value)">
+    <label class="option">
+      <input type="radio" name="sommeil" value="2">
+      <div class="value">2</div>
+      <div class="emoji">😕</div>
+      <div class="legend">Mauvais</div>
+    </label>
 
-    <div class="rpe-scale">
-        <span>0</span>
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-        <span>7</span>
-        <span>8</span>
-        <span>9</span>
-        <span>10</span>
-    </div>
+    <label class="option">
+      <input type="radio" name="sommeil" value="3">
+      <div class="value">3</div>
+      <div class="emoji">😐</div>
+      <div class="legend">Moyen</div>
+    </label>
 
-    <div class="rpe-zones">
-        <div class="zone green">Très facile</div>
-        <div class="zone yellow">Modéré</div>
-        <div class="zone orange">Élevé</div>
-        <div class="zone red">Très élevé</div>
-    </div>
+    <label class="option">
+      <input type="radio" name="sommeil" value="4">
+      <div class="value">4</div>
+      <div class="emoji">🙂</div>
+      <div class="legend">Bon</div>
+    </label>
+
+    <label class="option">
+      <input type="radio" name="sommeil" value="5">
+      <div class="value">5</div>
+      <div class="emoji">😁</div>
+      <div class="legend">Excellent</div>
+    </label>
+
+  </div>
 </div>
 
-        <label>Douleur ou gêne physique ?</label>
-        <select>
-            <option>Non</option>
-            <option>Oui</option>
-        </select>
+<!-- RPE -->
+<div class="form-group">
+  <label>Ressenti de l'effort (RPE)</label>
 
-        <label>Quel facteur t'a limité pour aller plus vite / plus loin ?</label>
-        <select>
-            <option>Mes muscles brûlaient / trop lourds</option>
-            <option>Trop essoufflée / mon coeur battait trop vite</option>
-            <option>Les deux de manière égale</option>
-            <option>Aucun</option>
-        </select>
+  <div class="rpe-display">
+    <span id="rpeValue">5</span> / 10
+  </div>
 
-        <button type="submit" class="btn">Envoyer</button>
+  <div class="rpe-grid" id="rpeGroup">
 
-    </form>
+    <label class="rpe-btn green"><input type="radio" name="rpe" value="0"><span>0</span></label>
+    <label class="rpe-btn green"><input type="radio" name="rpe" value="1"><span>1</span></label>
+    <label class="rpe-btn green"><input type="radio" name="rpe" value="2"><span>2</span></label>
+    <label class="rpe-btn green"><input type="radio" name="rpe" value="3"><span>3</span></label>
+    <label class="rpe-btn yellow"><input type="radio" name="rpe" value="4"><span>4</span></label>
+    <label class="rpe-btn yellow selected"><input type="radio" name="rpe" value="5"><span>5</span></label>
+    <label class="rpe-btn orange"><input type="radio" name="rpe" value="6"><span>6</span></label>
+    <label class="rpe-btn orange"><input type="radio" name="rpe" value="7"><span>7</span></label>
+    <label class="rpe-btn red"><input type="radio" name="rpe" value="8"><span>8</span></label>
+    <label class="rpe-btn red"><input type="radio" name="rpe" value="9"><span>9</span></label>
+    <label class="rpe-btn red"><input type="radio" name="rpe" value="10"><span>10</span></label>
+
+  </div>
+
+  <div class="rpe-legend-bars">
+    <div><span class="bar green"></span>Très facile</div>
+    <div><span class="bar yellow"></span>Modéré</div>
+    <div><span class="bar orange"></span>Élevé</div>
+    <div><span class="bar red"></span>Très élevé</div>
+  </div>
+
+</div>
+
+<!-- Douleur -->
+<div class="form-group">
+  <label>Douleur ou gêne physique ?</label>
+  <select name="douleur">
+    <option>Non</option>
+    <option>Oui</option>
+  </select>
+</div>
+
+<!-- Facteur limitant -->
+<div class="form-group">
+  <label>Quel facteur t'a limité pour aller plus vite / plus loin ?</label>
+  <select name="facteur">
+    <option>Mes muscles brûlaient / trop lourds</option>
+    <option>Mon souffle</option>
+    <option>La douleur</option>
+    <option>Le manque d'énergie</option>
+    <option>Le mental</option>
+    <option>Autre</option>
+  </select>
+</div>
+
+<button type="submit" class="btn">Envoyer</button>
+```
+
+  </form>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
