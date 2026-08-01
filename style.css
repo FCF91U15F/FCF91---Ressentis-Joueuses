@@ -751,3 +751,257 @@ textarea{
         grid-template-columns:1fr;
     }
 }
+
+/* =========================================================
+   CORRECTION FINALE — PAGE RESSENTI UNIQUEMENT
+   Ne modifie pas la page d'accueil
+   ========================================================= */
+
+.form-page .rating-fieldset,
+.form-page .rpe-section {
+  min-width: 0;
+  margin: 0 0 55px;
+  padding: 0;
+  border: 0;
+}
+
+.form-page .rating-fieldset > legend,
+.form-page .rpe-section > legend {
+  width: 100%;
+  margin: 0 0 24px;
+  padding: 0;
+
+  color: #ffffff;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(25px, 6vw, 34px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* =========================================================
+   HUMEUR ET SOMMEIL
+   ========================================================= */
+
+.form-page .ratings {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(8px, 2.5vw, 18px);
+
+  width: 100%;
+  align-items: start;
+}
+
+.form-page .option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-width: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.form-page .option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Le chiffre est seul dans le carré */
+
+.form-page .option .value {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+  background: #111111;
+
+  border: 3px solid #d81038;
+  border-radius: 17px;
+
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(28px, 7vw, 42px);
+  font-weight: 700;
+  line-height: 1;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* La légende est à l'extérieur, sous le carré */
+
+.form-page .option .legend {
+  display: block;
+  width: 100%;
+  min-height: 42px;
+
+  margin-top: 11px;
+
+  color: #d8d8d8;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(12px, 3.1vw, 17px);
+  font-weight: 400;
+  line-height: 1.15;
+  text-align: center;
+
+  overflow-wrap: anywhere;
+}
+
+/* Sélection Humeur / Sommeil */
+
+.form-page .option.selected .value,
+.form-page .option:has(input:checked) .value {
+  color: #ffffff;
+  background: #d80b35;
+  border-color: #ed1747;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 20px rgba(227, 10, 54, 0.62);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   RPE
+   ========================================================= */
+
+.form-page .rpe-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 9px;
+
+  margin: 4px 0 25px;
+
+  color: #ffffff;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(39px, 10vw, 58px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.form-page .rpe-total {
+  color: #ffffff;
+}
+
+/*
+  Grille de 12 colonnes :
+  - ligne 1 : 6 boutons de deux colonnes
+  - ligne 2 : 5 boutons, décalés d'une colonne pour être centrés
+*/
+
+.form-page .rpe-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(9px, 2.5vw, 17px);
+
+  width: 100%;
+  align-items: center;
+}
+
+.form-page .rpe-btn {
+  grid-column: span 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+
+  color: #ffffff;
+  background: #111111;
+
+  border: 3px solid #606060;
+  border-radius: 17px;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Le bouton 6 commence une colonne plus loin */
+
+.form-page .rpe-btn:nth-child(7) {
+  grid-column: 2 / span 2;
+}
+
+.form-page .rpe-btn input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-page .rpe-btn span {
+  color: #ffffff;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(26px, 6.5vw, 39px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Sélection RPE */
+
+.form-page .rpe-btn.selected,
+.form-page .rpe-btn:has(input:checked) {
+  background: #d80b35;
+  border-color: #ed1747;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 20px rgba(227, 10, 54, 0.62);
+
+  transform: translateY(-2px);
+}
+
+/* Suppression définitive de l'ancienne légende RPE */
+
+.form-page .rpe-legend-bars {
+  display: none !important;
+}
+
+/* =========================================================
+   PETITS TÉLÉPHONES
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .form-page .ratings {
+    gap: 7px;
+  }
+
+  .form-page .option .value {
+    border-width: 2px;
+    border-radius: 13px;
+  }
+
+  .form-page .option .legend {
+    margin-top: 8px;
+    font-size: 12px;
+  }
+
+  .form-page .rpe-grid {
+    gap: 8px;
+  }
+
+  .form-page .rpe-btn {
+    border-width: 2px;
+    border-radius: 13px;
+  }
+}
