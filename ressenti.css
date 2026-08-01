@@ -574,6 +574,31 @@ body {
         font-size: 9.5px;
     }
 
+   .form-message {
+  min-height: 26px;
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.form-message.success {
+  color: #54d887;
+}
+
+.form-message.error {
+  color: #ff5a70;
+}
+
+.form-message.loading {
+  color: #d5d5d5;
+}
+
+.submit-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+}
     .rpe-grid {
         gap: 5px;
     }
