@@ -11,219 +11,230 @@
 
   <meta name="theme-color" content="#050505">
 
-  <title>Mon ressenti - FCF91 U15F</title>
+  <title>Mon ressenti — FCF91 U15F</title>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="ressenti.css?v=3">
+  <!-- CSS réservé uniquement à la page Ressenti -->
+  <link rel="stylesheet" href="ressenti.css?v=4">
 </head>
 
-<body class="form-page">
+<body>
 
-  <main class="form-container">
+  <main class="ressenti-page">
 
-    <header class="form-header">
+    <header class="ressenti-header">
+
+      <a href="index.html" class="back-button">
+        ← Retour à l’accueil
+      </a>
+
       <img
         src="logo.png"
         alt="Logo du FC Fleury 91"
-        class="small-logo"
+        class="ressenti-logo"
       >
 
       <h1>MON RESSENTI</h1>
 
-      <a href="index.html" class="back-link">
-        ← Retour à l’accueil
-      </a>
+      <p>FCF91 U15F</p>
+
     </header>
 
-    <form id="ressentiForm">
+    <form id="ressentiForm" class="ressenti-form">
 
       <!-- Prénom -->
-      <section class="form-group">
-        <label for="prenom">Prénom de la joueuse</label>
+      <section class="form-section">
+
+        <label for="prenom" class="section-title">
+          Prénom de la joueuse
+        </label>
 
         <input
           type="text"
           id="prenom"
           name="prenom"
+          class="text-input"
           placeholder="Prénom"
           autocomplete="given-name"
           required
         >
+
       </section>
 
       <!-- Humeur -->
-      <fieldset class="form-group rating-fieldset">
-        <legend>Humeur du jour</legend>
+      <section class="form-section">
 
-        <div class="ratings" id="humeurGroup">
+        <h2 class="section-title">
+          Humeur du jour
+        </h2>
 
-          <label class="option">
+        <div class="rating-grid">
+
+          <label class="rating-choice">
             <input
               type="radio"
               name="humeur"
               value="1"
               required
             >
-
-            <span class="value">1</span>
-            <span class="legend">Très mauvaise</span>
+            <span class="rating-square">1</span>
+            <span class="rating-label">Très mauvaise</span>
           </label>
 
-          <label class="option">
+          <label class="rating-choice">
             <input
               type="radio"
               name="humeur"
               value="2"
             >
-
-            <span class="value">2</span>
-            <span class="legend">Mauvaise</span>
+            <span class="rating-square">2</span>
+            <span class="rating-label">Mauvaise</span>
           </label>
 
-          <label class="option selected">
+          <label class="rating-choice">
             <input
               type="radio"
               name="humeur"
               value="3"
               checked
             >
-
-            <span class="value">3</span>
-            <span class="legend">Moyenne</span>
+            <span class="rating-square">3</span>
+            <span class="rating-label">Moyenne</span>
           </label>
 
-          <label class="option">
+          <label class="rating-choice">
             <input
               type="radio"
               name="humeur"
               value="4"
             >
-
-            <span class="value">4</span>
-            <span class="legend">Bonne</span>
+            <span class="rating-square">4</span>
+            <span class="rating-label">Bonne</span>
           </label>
 
-          <label class="option">
+          <label class="rating-choice">
             <input
               type="radio"
               name="humeur"
               value="5"
             >
-
-            <span class="value">5</span>
-            <span class="legend">Excellente</span>
+            <span class="rating-square">5</span>
+            <span class="rating-label">Excellente</span>
           </label>
 
         </div>
-      </fieldset>
+
+      </section>
 
       <!-- Sommeil -->
-      <fieldset class="form-group rating-fieldset">
-        <legend>Qualité du sommeil</legend>
+      <section class="form-section">
 
-        <div class="ratings" id="sommeilGroup">
+        <h2 class="section-title">
+          Qualité du sommeil
+        </h2>
 
-          <label class="option">
+        <div class="rating-grid">
+
+          <label class="rating-choice">
             <input
               type="radio"
               name="sommeil"
               value="1"
               required
             >
-
-            <span class="value">1</span>
-            <span class="legend">Très mauvais</span>
+            <span class="rating-square">1</span>
+            <span class="rating-label">Très mauvais</span>
           </label>
 
-          <label class="option">
+          <label class="rating-choice">
             <input
               type="radio"
               name="sommeil"
               value="2"
             >
-
-            <span class="value">2</span>
-            <span class="legend">Mauvais</span>
+            <span class="rating-square">2</span>
+            <span class="rating-label">Mauvais</span>
           </label>
 
-          <label class="option selected">
+          <label class="rating-choice">
             <input
               type="radio"
               name="sommeil"
               value="3"
               checked
             >
-
-            <span class="value">3</span>
-            <span class="legend">Moyen</span>
+            <span class="rating-square">3</span>
+            <span class="rating-label">Moyen</span>
           </label>
 
-          <label class="option">
+          <label class="rating-choice">
             <input
               type="radio"
               name="sommeil"
               value="4"
             >
-
-            <span class="value">4</span>
-            <span class="legend">Bon</span>
+            <span class="rating-square">4</span>
+            <span class="rating-label">Bon</span>
           </label>
 
-          <label class="option">
+          <label class="rating-choice">
             <input
               type="radio"
               name="sommeil"
               value="5"
             >
-
-            <span class="value">5</span>
-            <span class="legend">Excellent</span>
+            <span class="rating-square">5</span>
+            <span class="rating-label">Excellent</span>
           </label>
 
         </div>
-      </fieldset>
+
+      </section>
 
       <!-- RPE -->
-      <fieldset class="form-group rpe-section">
-        <legend>Ressenti de l’effort (RPE)</legend>
+      <section class="form-section">
+
+        <h2 class="section-title">
+          Ressenti de l’effort (RPE)
+        </h2>
 
         <div class="rpe-display">
           <span id="rpeValue">5</span>
-          <span class="rpe-total">/ 10</span>
+          <span>/ 10</span>
         </div>
 
-        <div class="rpe-grid" id="rpeGroup">
+        <div class="rpe-grid">
 
-          <label class="rpe-btn">
+          <label class="rpe-choice">
             <input type="radio" name="rpe" value="0">
             <span>0</span>
           </label>
 
-          <label class="rpe-btn">
+          <label class="rpe-choice">
             <input type="radio" name="rpe" value="1">
             <span>1</span>
           </label>
 
-          <label class="rpe-btn">
+          <label class="rpe-choice">
             <input type="radio" name="rpe" value="2">
             <span>2</span>
           </label>
 
-          <label class="rpe-btn">
+          <label class="rpe-choice">
             <input type="radio" name="rpe" value="3">
             <span>3</span>
           </label>
 
-          <label class="rpe-btn">
+          <label class="rpe-choice">
             <input type="radio" name="rpe" value="4">
             <span>4</span>
           </label>
 
-          <label class="rpe-btn selected">
+          <label class="rpe-choice">
             <input
               type="radio"
               name="rpe"
@@ -231,57 +242,70 @@
               checked
               required
             >
-
             <span>5</span>
           </label>
 
-          <label class="rpe-btn">
+          <label class="rpe-choice">
             <input type="radio" name="rpe" value="6">
             <span>6</span>
           </label>
 
-          <label class="rpe-btn">
+          <label class="rpe-choice">
             <input type="radio" name="rpe" value="7">
             <span>7</span>
           </label>
 
-          <label class="rpe-btn">
+          <label class="rpe-choice">
             <input type="radio" name="rpe" value="8">
             <span>8</span>
           </label>
 
-          <label class="rpe-btn">
+          <label class="rpe-choice">
             <input type="radio" name="rpe" value="9">
             <span>9</span>
           </label>
 
-          <label class="rpe-btn">
+          <label class="rpe-choice">
             <input type="radio" name="rpe" value="10">
             <span>10</span>
           </label>
 
         </div>
-      </fieldset>
+
+      </section>
 
       <!-- Douleur -->
-      <section class="form-group">
-        <label for="douleur">
+      <section class="form-section">
+
+        <label for="douleur" class="section-title">
           Douleur ou gêne physique ?
         </label>
 
-        <select id="douleur" name="douleur" required>
+        <select
+          id="douleur"
+          name="douleur"
+          class="select-input"
+          required
+        >
           <option value="Non">Non</option>
           <option value="Oui">Oui</option>
         </select>
+
       </section>
 
       <!-- Facteur limitant -->
-      <section class="form-group">
-        <label for="facteur">
+      <section class="form-section">
+
+        <label for="facteur" class="section-title">
           Quel facteur t’a limitée ?
         </label>
 
-        <select id="facteur" name="facteur" required>
+        <select
+          id="facteur"
+          name="facteur"
+          class="select-input"
+          required
+        >
           <option value="Aucun">
             Aucun
           </option>
@@ -298,7 +322,7 @@
             Une douleur
           </option>
 
-          <option value="Manque d'énergie">
+          <option value="Manque d’énergie">
             Le manque d’énergie
           </option>
 
@@ -310,23 +334,27 @@
             Autre
           </option>
         </select>
+
       </section>
 
       <!-- Commentaire -->
-      <section class="form-group">
-        <label for="commentaire">
+      <section class="form-section">
+
+        <label for="commentaire" class="section-title">
           Commentaire facultatif
         </label>
 
         <textarea
           id="commentaire"
           name="commentaire"
+          class="text-area"
           rows="4"
           placeholder="Tu peux préciser ton ressenti ici..."
         ></textarea>
+
       </section>
 
-      <button type="submit" class="btn submit-btn">
+      <button type="submit" class="submit-button">
         ENVOYER
       </button>
 
@@ -341,7 +369,8 @@
 
   </main>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=4"></script>
 
 </body>
+
 </html>
