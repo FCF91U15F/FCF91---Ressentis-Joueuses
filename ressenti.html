@@ -25,116 +25,45 @@
   <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
 </div>
 
-<!-- Humeur -->
 <div class="form-group">
   <label>Humeur du jour</label>
-
   <div class="ratings" id="humeurGroup">
-
-    <label class="option selected">
-      <input type="radio" name="humeur" value="1" required>
-      <div class="value">1</div>
-      <div class="emoji">😢</div>
-      <div class="legend">Très mauvaise</div>
-    </label>
-
-    <label class="option">
-      <input type="radio" name="humeur" value="2">
-      <div class="value">2</div>
-      <div class="emoji">🙁</div>
-      <div class="legend">Mauvaise</div>
-    </label>
-
-    <label class="option">
-      <input type="radio" name="humeur" value="3">
-      <div class="value">3</div>
-      <div class="emoji">😐</div>
-      <div class="legend">Moyenne</div>
-    </label>
-
-    <label class="option">
-      <input type="radio" name="humeur" value="4">
-      <div class="value">4</div>
-      <div class="emoji">🙂</div>
-      <div class="legend">Bonne</div>
-    </label>
-
-    <label class="option">
-      <input type="radio" name="humeur" value="5">
-      <div class="value">5</div>
-      <div class="emoji">🤩</div>
-      <div class="legend">Excellente</div>
-    </label>
-
+    <label class="option"><input type="radio" name="humeur" value="1"><div class="value">1</div><div class="legend">Très mauvaise</div></label>
+    <label class="option"><input type="radio" name="humeur" value="2"><div class="value">2</div><div class="legend">Mauvaise</div></label>
+    <label class="option selected"><input type="radio" name="humeur" value="3" checked><div class="value">3</div><div class="legend">Moyenne</div></label>
+    <label class="option"><input type="radio" name="humeur" value="4"><div class="value">4</div><div class="legend">Bonne</div></label>
+    <label class="option"><input type="radio" name="humeur" value="5"><div class="value">5</div><div class="legend">Excellente</div></label>
   </div>
 </div>
 
-<!-- Sommeil -->
 <div class="form-group">
   <label>Qualité du sommeil</label>
-
   <div class="ratings" id="sommeilGroup">
-
-    <label class="option selected">
-      <input type="radio" name="sommeil" value="1" required>
-      <div class="value">1</div>
-      <div class="emoji">😴</div>
-      <div class="legend">Très mauvais</div>
-    </label>
-
-    <label class="option">
-      <input type="radio" name="sommeil" value="2">
-      <div class="value">2</div>
-      <div class="emoji">😕</div>
-      <div class="legend">Mauvais</div>
-    </label>
-
-    <label class="option">
-      <input type="radio" name="sommeil" value="3">
-      <div class="value">3</div>
-      <div class="emoji">😐</div>
-      <div class="legend">Moyen</div>
-    </label>
-
-    <label class="option">
-      <input type="radio" name="sommeil" value="4">
-      <div class="value">4</div>
-      <div class="emoji">🙂</div>
-      <div class="legend">Bon</div>
-    </label>
-
-    <label class="option">
-      <input type="radio" name="sommeil" value="5">
-      <div class="value">5</div>
-      <div class="emoji">😁</div>
-      <div class="legend">Excellent</div>
-    </label>
-
+    <label class="option"><input type="radio" name="sommeil" value="1"><div class="value">1</div><div class="legend">Très mauvais</div></label>
+    <label class="option"><input type="radio" name="sommeil" value="2"><div class="value">2</div><div class="legend">Mauvais</div></label>
+    <label class="option selected"><input type="radio" name="sommeil" value="3" checked><div class="value">3</div><div class="legend">Moyen</div></label>
+    <label class="option"><input type="radio" name="sommeil" value="4"><div class="value">4</div><div class="legend">Bon</div></label>
+    <label class="option"><input type="radio" name="sommeil" value="5"><div class="value">5</div><div class="legend">Excellent</div></label>
   </div>
 </div>
 
-<!-- RPE -->
 <div class="form-group">
   <label>Ressenti de l'effort (RPE)</label>
 
-  <div class="rpe-display">
-    <span id="rpeValue">5</span> / 10
-  </div>
+  <div class="rpe-display"><span id="rpeValue">5</span> / 10</div>
 
   <div class="rpe-grid" id="rpeGroup">
-
-    <label class="rpe-btn green"><input type="radio" name="rpe" value="0"><span>0</span></label>
-    <label class="rpe-btn green"><input type="radio" name="rpe" value="1"><span>1</span></label>
-    <label class="rpe-btn green"><input type="radio" name="rpe" value="2"><span>2</span></label>
-    <label class="rpe-btn green"><input type="radio" name="rpe" value="3"><span>3</span></label>
-    <label class="rpe-btn yellow"><input type="radio" name="rpe" value="4"><span>4</span></label>
-    <label class="rpe-btn yellow selected"><input type="radio" name="rpe" value="5"><span>5</span></label>
-    <label class="rpe-btn orange"><input type="radio" name="rpe" value="6"><span>6</span></label>
-    <label class="rpe-btn orange"><input type="radio" name="rpe" value="7"><span>7</span></label>
-    <label class="rpe-btn red"><input type="radio" name="rpe" value="8"><span>8</span></label>
-    <label class="rpe-btn red"><input type="radio" name="rpe" value="9"><span>9</span></label>
-    <label class="rpe-btn red"><input type="radio" name="rpe" value="10"><span>10</span></label>
-
+    <label class="rpe-btn"><input type="radio" name="rpe" value="0"><span>0</span></label>
+    <label class="rpe-btn"><input type="radio" name="rpe" value="1"><span>1</span></label>
+    <label class="rpe-btn"><input type="radio" name="rpe" value="2"><span>2</span></label>
+    <label class="rpe-btn"><input type="radio" name="rpe" value="3"><span>3</span></label>
+    <label class="rpe-btn"><input type="radio" name="rpe" value="4"><span>4</span></label>
+    <label class="rpe-btn selected"><input type="radio" name="rpe" value="5" checked><span>5</span></label>
+    <label class="rpe-btn"><input type="radio" name="rpe" value="6"><span>6</span></label>
+    <label class="rpe-btn"><input type="radio" name="rpe" value="7"><span>7</span></label>
+    <label class="rpe-btn"><input type="radio" name="rpe" value="8"><span>8</span></label>
+    <label class="rpe-btn"><input type="radio" name="rpe" value="9"><span>9</span></label>
+    <label class="rpe-btn"><input type="radio" name="rpe" value="10"><span>10</span></label>
   </div>
 
   <div class="rpe-legend-bars">
@@ -143,10 +72,8 @@
     <div><span class="bar orange"></span>Élevé</div>
     <div><span class="bar red"></span>Très élevé</div>
   </div>
-
 </div>
 
-<!-- Douleur -->
 <div class="form-group">
   <label>Douleur ou gêne physique ?</label>
   <select name="douleur">
@@ -155,9 +82,8 @@
   </select>
 </div>
 
-<!-- Facteur limitant -->
 <div class="form-group">
-  <label>Quel facteur t'a limité pour aller plus vite / plus loin ?</label>
+  <label>Quel facteur t'a limité ?</label>
   <select name="facteur">
     <option>Mes muscles brûlaient / trop lourds</option>
     <option>Mon souffle</option>
@@ -179,3 +105,4 @@
 
 </body>
 </html>
+
