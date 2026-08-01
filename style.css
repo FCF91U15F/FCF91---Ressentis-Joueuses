@@ -28,12 +28,12 @@ body{
 
 .form-container{
     width:92%;
-    max-width:760px;
+    max-width:780px;
     margin:0 auto;
     background:#0b0b0b;
     border:1px solid rgba(200,16,46,.45);
     border-radius:24px;
-    padding:30px;
+    padding:32px;
     box-shadow:0 0 35px rgba(200,16,46,.15);
 }
 
@@ -55,13 +55,14 @@ body{
 ========================= */
 
 .form-group{
-    margin-bottom:30px;
+    margin-bottom:32px;
 }
 
 label{
     display:block;
-    margin-bottom:12px;
+    margin-bottom:14px;
     font-size:1.05rem;
+    font-weight:500;
 }
 
 input[type="text"],
@@ -82,7 +83,7 @@ textarea{
 }
 
 /* =========================
-   BOUTONS HUMEUR / SOMMEIL
+   HUMEUR / SOMMEIL
 ========================= */
 
 .ratings{
@@ -94,11 +95,15 @@ textarea{
 .option{
     border:2px solid #c8102e;
     border-radius:16px;
-    padding:12px 8px;
+    padding:14px 8px;
     text-align:center;
     cursor:pointer;
     transition:.25s;
     background:#111;
+    min-height:120px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
 .option input{
@@ -106,25 +111,24 @@ textarea{
 }
 
 .option .value{
-    font-size:1.1rem;
+    font-size:1.25rem;
     font-weight:700;
-    margin-bottom:6px;
-}
-
-.option .emoji{
-    font-size:1.6rem;
-    margin-bottom:8px;
+    margin-bottom:10px;
 }
 
 .option .legend{
     font-size:.72rem;
-    color:#cfcfcf;
+    color:#d6d6d6;
     line-height:1.2;
 }
 
 .option.selected{
     background:#c8102e;
-    box-shadow:0 0 18px rgba(200,16,46,.55);
+    box-shadow:0 0 18px rgba(200,16,46,.45);
+}
+
+.option.selected .legend{
+    color:white;
 }
 
 /* =========================
@@ -135,7 +139,7 @@ textarea{
     text-align:center;
     font-size:1.5rem;
     font-weight:700;
-    color:#facc15;
+    color:#ffffff;
     margin-bottom:18px;
 }
 
@@ -146,9 +150,9 @@ textarea{
 }
 
 .rpe-btn{
-    border:2px solid;
+    border:2px solid #666;
     border-radius:14px;
-    padding:14px 0;
+    padding:16px 0;
     text-align:center;
     cursor:pointer;
     transition:.25s;
@@ -164,51 +168,15 @@ textarea{
     font-weight:700;
 }
 
-/* couleurs */
-
-.rpe-btn.green{
-    border-color:#22c55e;
+.rpe-btn.selected{
+    background:#c8102e;
+    border-color:#c8102e;
+    box-shadow:0 0 16px rgba(200,16,46,.45);
 }
 
-.rpe-btn.yellow{
-    border-color:#facc15;
-}
-
-.rpe-btn.orange{
-    border-color:#f97316;
-}
-
-.rpe-btn.red{
-    border-color:#ef4444;
-}
-
-/* sélection */
-
-.rpe-btn.selected.green{
-    background:#22c55e;
-    color:#000;
-    box-shadow:0 0 16px rgba(34,197,94,.45);
-}
-
-.rpe-btn.selected.yellow{
-    background:#facc15;
-    color:#000;
-    box-shadow:0 0 16px rgba(250,204,21,.45);
-}
-
-.rpe-btn.selected.orange{
-    background:#f97316;
-    color:#000;
-    box-shadow:0 0 16px rgba(249,115,22,.45);
-}
-
-.rpe-btn.selected.red{
-    background:#ef4444;
-    color:#fff;
-    box-shadow:0 0 16px rgba(239,68,68,.45);
-}
-
-/* légende */
+/* =========================
+   LÉGENDE RPE
+========================= */
 
 .rpe-legend-bars{
     display:grid;
@@ -226,7 +194,7 @@ textarea{
 }
 
 .bar{
-    width:26px;
+    width:28px;
     height:8px;
     border-radius:999px;
     display:inline-block;
@@ -256,7 +224,7 @@ textarea{
 
 .btn:hover{
     background:#c8102e;
-    box-shadow:0 0 22px rgba(200,16,46,.55);
+    box-shadow:0 0 22px rgba(200,16,46,.45);
 }
 
 /* =========================
@@ -265,17 +233,21 @@ textarea{
 
 @media (max-width:700px){
 
+    .form-container{
+        padding:24px;
+    }
+
     .ratings{
-        grid-template-columns:repeat(5,1fr);
         gap:8px;
     }
 
     .option{
-        padding:10px 6px;
+        min-height:110px;
+        padding:12px 6px;
     }
 
-    .option .emoji{
-        font-size:1.4rem;
+    .option .value{
+        font-size:1.1rem;
     }
 
     .option .legend{
@@ -283,12 +255,11 @@ textarea{
     }
 
     .rpe-grid{
-        grid-template-columns:repeat(6,1fr);
         gap:8px;
     }
 
     .rpe-btn{
-        padding:12px 0;
+        padding:14px 0;
     }
 
     .rpe-legend-bars{
