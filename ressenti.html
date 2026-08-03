@@ -19,13 +19,14 @@
   >
 
   <!-- CSS réservé uniquement à la page Ressenti -->
-  <link rel="stylesheet" href="ressenti.css?v=4">
+  <link rel="stylesheet" href="ressenti.css?v=5">
 </head>
 
 <body>
 
   <main class="ressenti-page">
 
+    <!-- En-tête -->
     <header class="ressenti-header">
 
       <a href="index.html" class="back-button">
@@ -44,29 +45,30 @@
 
     </header>
 
+    <!-- Formulaire -->
     <form id="ressentiForm" class="ressenti-form">
 
       <!-- Prénom -->
-     <section class="form-section">
+      <section class="form-section">
 
-  <label for="prenom" class="section-title">
-    Prénom de la joueuse
-  </label>
+        <label for="prenom" class="section-title">
+          Prénom de la joueuse
+        </label>
 
-  <select
-    id="prenom"
-    name="prenom"
-    class="select-input"
-    required
-  >
-    <option value="">
-      -- Choisir son prénom --
-    </option>
-  </select>
+        <select
+          id="prenom"
+          name="prenom"
+          class="select-input"
+          required
+        >
+          <option value="">
+            -- Choisir son prénom --
+          </option>
+        </select>
 
-</section>
+      </section>
 
-      <!-- Humeur -->
+      <!-- Plaisir / humeur -->
       <section class="form-section">
 
         <h2 class="section-title">
@@ -197,75 +199,94 @@
       </section>
 
       <!-- RPE -->
-     <div class="form-group rpe-section">
+      <section class="form-section rpe-section">
 
-  <label class="rpe-title">
-    Ressenti de l'effort (RPE)
-  </label>
+        <h2 class="section-title">
+          Ressenti de l’effort (RPE)
+        </h2>
 
-  <div class="rpe-value-display">
-    <span id="rpeValue">5</span>
-    <span class="rpe-total">/ 10</span>
-  </div>
+        <div
+          class="rpe-value-display"
+          aria-live="polite"
+        >
+          <span id="rpeValue">5</span>
+          <span class="rpe-total">/ 10</span>
+        </div>
 
-  <div class="rpe-scale">
+        <div class="rpe-scale">
 
-    <div class="rpe-numbers" aria-hidden="true">
-      <span>0</span>
-      <span>1</span>
-      <span>2</span>
-      <span>3</span>
-      <span>4</span>
-      <span>5</span>
-      <span>6</span>
-      <span>7</span>
-      <span>8</span>
-      <span>9</span>
-      <span>10</span>
-    </div>
+          <!-- Valeurs de 0 à 10 -->
+          <div class="rpe-numbers" aria-hidden="true">
+            <span>0</span>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span>10</span>
+          </div>
 
-    <div class="rpe-ruler">
+          <!-- Règle graduée -->
+          <div
+            class="rpe-ruler"
+            id="rpeRuler"
+          >
 
-      <div class="rpe-ticks" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+            <div
+              class="rpe-track"
+              aria-hidden="true"
+            >
+              <div class="rpe-track-fill"></div>
+            </div>
 
-      <input
-        type="range"
-        id="rpe"
-        name="rpe"
-        min="0"
-        max="10"
-        step="1"
-        value="5"
-        aria-label="Ressenti de l'effort de 0 à 10"
-        required
-      >
+            <div
+              class="rpe-ticks"
+              aria-hidden="true"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
 
-    </div>
+            <input
+              type="range"
+              id="rpe"
+              name="rpe"
+              min="0"
+              max="10"
+              step="1"
+              value="5"
+              aria-label="Ressenti de l’effort entre 0 et 10"
+              required
+            >
 
-    <div class="rpe-extremes">
-      <span>Effort faible</span>
-      <span>Effort maximal</span>
-    </div>
+          </div>
 
-  </div>
+          <div class="rpe-extremes">
+            <span>Effort faible</span>
+            <span>Effort maximal</span>
+          </div>
 
-  <p class="rpe-help">
-    Il n'y a ni bonne, ni mauvaise réponse, seul le ressenti personnel compte.
-  </p>
+        </div>
 
-</div>
+        <p class="rpe-help">
+          Il n’y a ni bonne, ni mauvaise réponse,
+          seul le ressenti personnel compte.
+        </p>
+
+      </section>
 
       <!-- Douleur -->
       <section class="form-section">
@@ -347,7 +368,11 @@
 
       </section>
 
-      <button type="submit" class="submit-button">
+      <!-- Envoi -->
+      <button
+        type="submit"
+        class="submit-button"
+      >
         ENVOYER
       </button>
 
@@ -359,68 +384,80 @@
       ></p>
 
     </form>
-    
-<!-- Carte affichée après l'envoi du questionnaire -->
-<section
-  id="successCard"
-  class="success-card"
-  aria-live="polite"
-  hidden
->
 
-  <div class="success-stripes" aria-hidden="true">
-    <span></span>
-    <span></span>
-  </div>
+    <!-- Carte affichée après l’envoi -->
+    <section
+      id="successCard"
+      class="success-card"
+      aria-live="polite"
+      hidden
+    >
 
-  <img
-    src="logo.png"
-    alt="Logo du FC Fleury 91"
-    class="success-logo"
-  >
+      <div
+        class="success-stripes"
+        aria-hidden="true"
+      >
+        <span></span>
+        <span></span>
+      </div>
 
-  <h2 class="success-title">
-    MERCI
-    <span id="successPlayerName"></span>
-    !
-  </h2>
+      <img
+        src="logo.png"
+        alt="Logo du FC Fleury 91"
+        class="success-logo"
+      >
 
-  <div class="success-title-line"></div>
+      <h2 class="success-title">
+        MERCI
+        <span id="successPlayerName"></span>
+        !
+      </h2>
 
-  <p class="success-introduction">
-    Merci d’avoir pris le temps de partager ton ressenti.
-  </p>
+      <div class="success-title-line"></div>
 
-  <div class="success-separator" aria-hidden="true">
-    <span></span>
-    <i></i>
-    <span></span>
-  </div>
+      <p class="success-introduction">
+        Merci d’avoir pris le temps de partager ton ressenti.
+      </p>
 
-  <blockquote
-    id="successMessage"
-    class="success-message"
-  ></blockquote>
+      <div
+        class="success-separator"
+        aria-hidden="true"
+      >
+        <span></span>
+        <i></i>
+        <span></span>
+      </div>
 
-  <div class="success-separator" aria-hidden="true">
-    <span></span>
-    <i></i>
-    <span></span>
-  </div>
+      <blockquote
+        id="successMessage"
+        class="success-message"
+      ></blockquote>
 
-  <p class="success-signature">
-    LE STAFF U15F
-  </p>
+      <div
+        class="success-separator"
+        aria-hidden="true"
+      >
+        <span></span>
+        <i></i>
+        <span></span>
+      </div>
 
-  <a href="index.html" class="success-home-button">
-    RETOUR À L’ACCUEIL
-  </a>
+      <p class="success-signature">
+        LE STAFF U15F
+      </p>
 
-</section>
-    
+      <a
+        href="index.html"
+        class="success-home-button"
+      >
+        RETOUR À L’ACCUEIL
+      </a>
+
+    </section>
+
   </main>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 
 </body>
 
