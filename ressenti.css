@@ -366,8 +366,8 @@ body {
     display: grid;
     grid-template-columns: repeat(11, minmax(0, 1fr));
 
-    width: 100%;
-    margin-bottom: 8px;
+    width: calc(100% - 34px);
+    margin: 0 auto 8px;
 
     color: var(--blanc);
 
@@ -382,27 +382,19 @@ body {
 
 .rpe-numbers span {
     min-width: 0;
+    text-align: center;
 }
-
-/* Les extrémités restent parfaitement alignées */
-
-.rpe-numbers span:first-child {
-    text-align: left;
-}
-
-.rpe-numbers span:last-child {
-    text-align: right;
-}
-
-/* Zone contenant ligne, graduations et curseur */
 
 .rpe-ruler {
     --rpe-position: 50%;
 
     position: relative;
 
-    width: 100%;
+    width: calc(100% - 34px);
     height: 58px;
+
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /* Ligne horizontale neutre */
