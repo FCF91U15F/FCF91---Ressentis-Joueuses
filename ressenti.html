@@ -47,23 +47,24 @@
     <form id="ressentiForm" class="ressenti-form">
 
       <!-- Prénom -->
-      <section class="form-section">
+     <section class="form-section">
 
-        <label for="prenom" class="section-title">
-          Prénom de la joueuse
-        </label>
+  <label for="prenom" class="section-title">
+    Prénom de la joueuse
+  </label>
 
-        <input
-          type="text"
-          id="prenom"
-          name="prenom"
-          class="text-input"
-          placeholder="Prénom"
-          autocomplete="given-name"
-          required
-        >
+  <select
+    id="prenom"
+    name="prenom"
+    class="select-input"
+    required
+  >
+    <option value="">
+      -- Choisir son prénom --
+    </option>
+  </select>
 
-      </section>
+</section>
 
       <!-- Humeur -->
       <section class="form-section">
