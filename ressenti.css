@@ -1,17 +1,24 @@
 /* =========================================================
    PAGE MON RESSENTI — FCF91 U15F
-   Fichier indépendant de la page d'accueil
    ========================================================= */
 
 :root {
-    --fond: #050505;
-    --carte: #0b0b0b;
-    --champ: #111111;
-    --blanc: #ffffff;
-    --texte-secondaire: #c7c7c7;
-    --bordure: #3d3d3d;
-    --rouge: #d80b35;
-    --rouge-clair: #ef1747;
+  --fond: #050505;
+  --carte: #0b0b0b;
+  --champ: #111111;
+
+  --blanc: #ffffff;
+  --texte-secondaire: #c7c7c7;
+  --bordure: #3d3d3d;
+
+  --rouge: #d80b35;
+  --rouge-clair: #ef1747;
+
+  /*
+   * Décalage commun aux chiffres, graduations,
+   * piste et curseur du RPE.
+   */
+  --rpe-bord: 16px;
 }
 
 /* =========================================================
@@ -19,74 +26,77 @@
    ========================================================= */
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    min-height: 100%;
-    background: var(--fond);
-    scroll-behavior: smooth;
+  min-height: 100%;
+
+  background: var(--fond);
+
+  scroll-behavior: smooth;
 }
 
 body {
-    min-height: 100%;
-    margin: 0;
+  min-height: 100%;
+  margin: 0;
 
-    color: var(--blanc);
+  color: var(--blanc);
 
-    background:
-        radial-gradient(
-            circle at 50% 4%,
-            rgba(216, 11, 53, 0.2),
-            transparent 28%
-        ),
-        linear-gradient(
-            180deg,
-            #050505 0%,
-            #090304 48%,
-            #050505 100%
-        );
+  background:
+    radial-gradient(
+      circle at 50% 4%,
+      rgba(216, 11, 53, 0.2),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #050505 0%,
+      #090304 48%,
+      #050505 100%
+    );
 
-    font-family: "Oswald", Arial, sans-serif;
+  font-family: "Oswald", Arial, sans-serif;
 
-    overflow-x: hidden;
-    overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 
-    -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* =========================================================
-   PAGE ET CONTENEUR
+   PAGE ET CONTENEURS
    ========================================================= */
 
 .ressenti-page {
-    width: 100%;
-    min-height: 100vh;
+  width: 100%;
+  min-height: 100vh;
 
-    padding:
-        max(24px, env(safe-area-inset-top))
-        16px
-        max(50px, env(safe-area-inset-bottom));
+  padding:
+    max(24px, env(safe-area-inset-top))
+    16px
+    max(50px, env(safe-area-inset-bottom));
 }
 
 .ressenti-header,
 .ressenti-form {
-    width: min(100%, 760px);
-    margin-right: auto;
-    margin-left: auto;
+  width: min(100%, 760px);
+
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .ressenti-form {
-    padding: clamp(20px, 4vw, 36px);
+  padding: clamp(20px, 4vw, 36px);
 
-    background: rgba(8, 8, 8, 0.96);
+  background: rgba(8, 8, 8, 0.96);
 
-    border: 1px solid rgba(216, 11, 53, 0.42);
-    border-radius: 25px;
+  border: 1px solid rgba(216, 11, 53, 0.42);
+  border-radius: 25px;
 
-    box-shadow:
-        0 0 35px rgba(216, 11, 53, 0.12),
-        0 22px 60px rgba(0, 0, 0, 0.48);
+  box-shadow:
+    0 0 35px rgba(216, 11, 53, 0.12),
+    0 22px 60px rgba(0, 0, 0, 0.48);
 }
 
 /* =========================================================
@@ -94,142 +104,150 @@ body {
    ========================================================= */
 
 .ressenti-header {
-    position: relative;
+  position: relative;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 
-    text-align: center;
+  text-align: center;
 }
 
 .back-button {
-    align-self: flex-start;
+  align-self: flex-start;
 
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 
-    color: var(--texte-secondaire);
+  color: var(--texte-secondaire);
 
-    font-size: 16px;
-    font-weight: 500;
+  font-size: 16px;
+  font-weight: 500;
 
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .back-button:hover,
 .back-button:focus-visible {
-    color: var(--blanc);
+  color: var(--blanc);
 }
 
 .ressenti-logo {
-    display: block;
+  display: block;
 
-    width: 92px;
-    height: 92px;
+  width: 92px;
+  height: 92px;
 
-    object-fit: contain;
+  margin-bottom: 10px;
 
-    margin-bottom: 10px;
+  object-fit: contain;
 
-    filter:
-        drop-shadow(0 8px 12px rgba(0, 0, 0, 0.65))
-        drop-shadow(0 0 10px rgba(216, 11, 53, 0.28));
+  filter:
+    drop-shadow(0 8px 12px rgba(0, 0, 0, 0.65))
+    drop-shadow(0 0 10px rgba(216, 11, 53, 0.28));
 }
 
 .ressenti-header h1 {
-    margin: 0;
+  margin: 0;
 
-    color: var(--blanc);
+  color: var(--blanc);
 
-    font-size: clamp(31px, 8vw, 47px);
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 2px;
+  font-size: clamp(31px, 8vw, 47px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 2px;
 }
 
 .ressenti-header p {
-    margin: 10px 0 0;
+  margin: 10px 0 0;
 
-    color: var(--rouge-clair);
+  color: var(--rouge-clair);
 
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
 }
 
 /* =========================================================
-   SECTIONS
+   SECTIONS ET TITRES
    ========================================================= */
 
 .form-section {
-    margin: 0 0 46px;
+  margin: 0 0 46px;
 }
 
 .section-title {
-    display: block;
+  display: block;
 
-    margin: 0 0 20px;
+  margin: 0 0 20px;
 
-    color: var(--blanc);
+  color: var(--blanc);
 
-    font-size: clamp(23px, 5.5vw, 31px);
-    font-weight: 600;
-    line-height: 1.2;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: clamp(23px, 5.5vw, 31px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Les h2 possèdent une marge native : on l'annule. */
+
+h2.section-title {
+  margin-top: 0;
 }
 
 /* =========================================================
-   CHAMPS TEXTE, LISTES ET COMMENTAIRE
+   CHAMPS, LISTES ET COMMENTAIRE
    ========================================================= */
 
 .text-input,
 .select-input,
 .text-area {
-    display: block;
+  display: block;
 
-    width: 100%;
+  width: 100%;
 
-    padding: 17px 18px;
+  padding: 17px 18px;
 
-    color: var(--blanc);
-    background: var(--champ);
+  color: var(--blanc);
+  background: var(--champ);
 
-    border: 1px solid var(--bordure);
-    border-radius: 16px;
+  border: 1px solid var(--bordure);
+  border-radius: 16px;
 
-    font-family: "Oswald", Arial, sans-serif;
-    font-size: 19px;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 19px;
 
-    outline: none;
+  outline: none;
 
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .text-input:focus,
 .select-input:focus,
 .text-area:focus {
-    border-color: var(--rouge-clair);
+  border-color: var(--rouge-clair);
 
-    box-shadow:
-        0 0 0 3px rgba(216, 11, 53, 0.14),
-        0 0 18px rgba(216, 11, 53, 0.16);
+  box-shadow:
+    0 0 0 3px rgba(216, 11, 53, 0.14),
+    0 0 18px rgba(216, 11, 53, 0.16);
 }
 
 .text-input::placeholder,
 .text-area::placeholder {
-    color: #777777;
+  color: #777777;
 }
 
 .select-input {
-    min-height: 62px;
+  min-height: 62px;
 }
 
 .text-area {
-    min-height: 125px;
-    resize: vertical;
+  min-height: 125px;
+
+  resize: vertical;
 }
 
 /* =========================================================
@@ -237,456 +255,440 @@ body {
    ========================================================= */
 
 .rating-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 
-    width: 100%;
+  width: 100%;
 
-    gap: clamp(7px, 2vw, 15px);
+  gap: clamp(7px, 2vw, 15px);
 
-    align-items: start;
+  align-items: start;
 }
 
 .rating-choice {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    min-width: 0;
+  min-width: 0;
 
-    cursor: pointer;
-    user-select: none;
+  cursor: pointer;
+  user-select: none;
 }
 
 .rating-choice input {
-    position: absolute;
+  position: absolute;
 
-    width: 1px;
-    height: 1px;
+  width: 1px;
+  height: 1px;
 
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
-
-/* Carré contenant uniquement le chiffre */
 
 .rating-square {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    width: 100%;
-    aspect-ratio: 1 / 1;
+  width: 100%;
 
-    color: var(--blanc);
-    background: var(--champ);
+  aspect-ratio: 1 / 1;
 
-    border: 2px solid var(--rouge);
-    border-radius: 15px;
+  color: var(--blanc);
+  background: var(--champ);
 
-    font-size: clamp(25px, 7vw, 41px);
-    font-weight: 700;
-    line-height: 1;
+  border: 2px solid var(--rouge);
+  border-radius: 15px;
 
-    transition:
-        background 0.18s ease,
-        border-color 0.18s ease,
-        box-shadow 0.18s ease,
-        transform 0.18s ease;
+  font-size: clamp(25px, 7vw, 41px);
+  font-weight: 700;
+  line-height: 1;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
 }
-
-/* Légende placée hors du carré */
 
 .rating-label {
-    display: block;
+  display: block;
 
-    width: 100%;
-    min-height: 42px;
+  width: 100%;
+  min-height: 42px;
 
-    margin-top: 10px;
+  margin-top: 10px;
 
-    color: var(--texte-secondaire);
+  color: var(--texte-secondaire);
 
-    font-size: clamp(11px, 2.8vw, 16px);
-    font-weight: 400;
-    line-height: 1.15;
-    text-align: center;
+  font-size: clamp(11px, 2.8vw, 16px);
+  font-weight: 400;
+  line-height: 1.15;
+  text-align: center;
 
-    overflow-wrap: normal;
-    word-break: normal;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
-/* Bouton sélectionné */
-
 .rating-choice input:checked + .rating-square {
-    background: var(--rouge);
-    border-color: var(--rouge-clair);
+  background: var(--rouge);
+  border-color: var(--rouge-clair);
 
-    box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.08) inset,
-        0 0 20px rgba(216, 11, 53, 0.62);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 20px rgba(216, 11, 53, 0.62);
 
-    transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
+/* Navigation clavier */
+
+.rating-choice input:focus-visible + .rating-square {
+  outline: 3px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 3px;
 }
 
 /* =========================================================
    RPE — RÈGLE GRADUÉE DE 0 À 10
    ========================================================= */
 
+.rpe-section {
+  /*
+   * L'espacement inférieur est géré par le texte explicatif.
+   * Cela évite que la question suivante soit trop proche.
+   */
+  margin-bottom: 0;
+}
+
 .rpe-value-display {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
 
-    margin: 2px 0 38px;
+  gap: 10px;
 
-    font-family: "Oswald", Arial, sans-serif;
-    font-weight: 700;
-    line-height: 1;
+  margin: 5px 0 38px;
+
+  font-family: "Oswald", Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1;
 }
 
 #rpeValue {
-    color: var(--rouge-clair);
-    font-size: clamp(60px, 15vw, 96px);
+  color: var(--rouge-clair);
+
+  font-size: clamp(60px, 15vw, 96px);
 }
 
 .rpe-total {
-    color: var(--blanc);
-    font-size: clamp(35px, 9vw, 56px);
+  color: var(--blanc);
+
+  font-size: clamp(35px, 9vw, 56px);
 }
 
 .rpe-scale {
-    width: 100%;
+  width: 100%;
 }
 
-/* Chiffres 0 à 10 */
+/* ---------------------------------------------------------
+   CHIFFRES 0 À 10
+
+   Chaque chiffre possède une largeur nulle.
+   Son centre est donc positionné exactement sur le point
+   réparti par justify-content: space-between.
+   --------------------------------------------------------- */
 
 .rpe-numbers {
-    display: grid;
-    grid-template-columns: repeat(11, minmax(0, 1fr));
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 
-    width: calc(100% - 34px);
-    margin: 0 auto 8px;
+  width: auto;
 
-    color: var(--blanc);
+  margin:
+    0
+    var(--rpe-bord)
+    8px;
 
-    font-family: "Oswald", Arial, sans-serif;
-    font-size: clamp(13px, 3.4vw, 19px);
-    font-weight: 600;
-    line-height: 1;
-    text-align: center;
+  color: var(--blanc);
 
-    user-select: none;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: clamp(13px, 3.4vw, 19px);
+  font-weight: 600;
+  line-height: 1;
+
+  user-select: none;
 }
 
 .rpe-numbers span {
-    min-width: 0;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+
+  width: 0;
+
+  white-space: nowrap;
 }
+
+/* ---------------------------------------------------------
+   RÈGLE
+   --------------------------------------------------------- */
 
 .rpe-ruler {
-    --rpe-position: 50%;
+  --rpe-position: 50%;
 
-    position: relative;
+  position: relative;
 
-    width: calc(100% - 34px);
-    height: 58px;
-
-    margin-right: auto;
-    margin-left: auto;
-
+  width: 100%;
+  height: 58px;
 }
 
-.rpe-ticks span::before {
-    content: "";
-
-    position: absolute;
-    top: 12px;
-    left: 50%;
-
-    width: 2px;
-    height: 33px;
-
-    background: #e6e6e6;
-    border-radius: 4px;
-
-    transform: translateX(-50%);
-}
-
-/* Ligne horizontale neutre */
+/*
+ * Piste placée entre les mêmes limites que les chiffres,
+ * les graduations et le curseur.
+ */
 
 .rpe-track {
-    position: absolute;
-    top: 26px;
-    right: 0;
-    left: 0;
+  position: absolute;
+  z-index: 1;
 
-    height: 5px;
+  top: 26px;
+  right: var(--rpe-bord);
+  left: var(--rpe-bord);
 
-    background: #737373;
-    border-radius: 999px;
+  height: 5px;
 
-    overflow: hidden;
-    pointer-events: none;
+  background: #737373;
+
+  border-radius: 999px;
+
+  overflow: hidden;
+  pointer-events: none;
 }
-
-/* Remplissage rouge jusqu’à la valeur choisie */
 
 .rpe-track-fill {
-    width: var(--rpe-position);
-    height: 100%;
+  width: var(--rpe-position);
+  height: 100%;
 
-    background: var(--rouge-clair);
-    border-radius: 999px;
+  background: var(--rouge-clair);
 
-    transition: width 0.14s ease;
+  border-radius: 999px;
+
+  transition: width 0.14s ease;
 }
 
-/* Graduations traversant la ligne */
+/* ---------------------------------------------------------
+   GRADUATIONS
+
+   Même système que les chiffres : onze points répartis
+   régulièrement, incluant précisément les deux extrémités.
+   --------------------------------------------------------- */
 
 .rpe-ticks {
-    position: absolute;
-    inset: 0;
+  position: absolute;
+  z-index: 2;
 
-    display: grid;
-    grid-template-columns: repeat(11, minmax(0, 1fr));
+  top: 0;
+  right: var(--rpe-bord);
+  left: var(--rpe-bord);
 
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
 
-    pointer-events: none;
+  height: 58px;
+
+  pointer-events: none;
 }
 
 .rpe-ticks span {
-    position: relative;
+  position: relative;
+
+  width: 0;
 }
 
 .rpe-ticks span::before {
-    content: "";
+  content: "";
 
-    position: absolute;
-    top: 12px;
-    left: 50%;
+  position: absolute;
 
-    width: 2px;
-    height: 33px;
+  top: 12px;
+  left: 50%;
 
-    background: #e6e6e6;
-    border-radius: 4px;
+  width: 2px;
+  height: 33px;
 
-    transform: translateX(-50%);
+  background: #e6e6e6;
+
+  border-radius: 4px;
+
+  transform: translateX(-50%);
 }
 
-/* Alignement précis des graduations 0 et 10 */
+/* ---------------------------------------------------------
+   CURSEUR
 
-.rpe-ticks span::before {
-    content: "";
-
-    position: absolute;
-    top: 12px;
-    left: 50%;
-
-    width: 2px;
-    height: 33px;
-
-    background: #e6e6e6;
-
-    transform: translateX(-50%);
-}
-
-/* Input invisible sauf son curseur */
+   L'input utilise exactement les mêmes limites horizontales.
+   Son 0 et son 10 correspondent donc aux graduations.
+   --------------------------------------------------------- */
 
 #rpe {
-    position: absolute;
-    inset: 0;
+  position: absolute;
+  z-index: 4;
 
-    z-index: 4;
+  top: 0;
+  left: var(--rpe-bord);
 
-    width: 100%;
-    height: 58px;
-    margin: 0;
+  width: calc(100% - (2 * var(--rpe-bord)));
+  height: 58px;
 
-    background: transparent;
+  margin: 0;
+  padding: 0;
 
-    appearance: none;
-    -webkit-appearance: none;
+  background: transparent;
 
-    cursor: pointer;
-    touch-action: pan-y;
+  appearance: none;
+  -webkit-appearance: none;
+
+  cursor: pointer;
+  touch-action: pan-y;
 }
 
-/* Masquage de la piste native */
+/* Piste native masquée */
 
 #rpe::-webkit-slider-runnable-track {
-    height: 5px;
-    background: transparent;
-    border: 0;
+  width: 100%;
+  height: 5px;
+
+  background: transparent;
+
+  border: 0;
 }
 
 #rpe::-moz-range-track {
-    height: 5px;
-    background: transparent;
-    border: 0;
+  width: 100%;
+  height: 5px;
+
+  background: transparent;
+
+  border: 0;
 }
 
 /* Curseur Chrome, Edge et Safari */
 
 #rpe::-webkit-slider-thumb {
-    width: 31px;
-    height: 31px;
+  width: 31px;
+  height: 31px;
 
-    margin-top: -13px;
+  margin-top: -13px;
 
-    background: var(--rouge-clair);
+  background: var(--rouge-clair);
 
-    border: 4px solid var(--blanc);
-    border-radius: 50%;
+  border: 4px solid var(--blanc);
+  border-radius: 50%;
 
-    box-shadow:
-        0 0 0 5px rgba(239, 23, 71, 0.17),
-        0 0 20px rgba(239, 23, 71, 0.72);
+  box-shadow:
+    0 0 0 5px rgba(239, 23, 71, 0.17),
+    0 0 20px rgba(239, 23, 71, 0.72);
 
-    appearance: none;
-    -webkit-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
 
-    transition:
-        box-shadow 0.18s ease,
-        transform 0.18s ease;
+  transition:
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
 }
 
 /* Curseur Firefox */
 
 #rpe::-moz-range-thumb {
-    width: 23px;
-    height: 23px;
+  width: 23px;
+  height: 23px;
 
-    background: var(--rouge-clair);
+  background: var(--rouge-clair);
 
-    border: 4px solid var(--blanc);
-    border-radius: 50%;
+  border: 4px solid var(--blanc);
+  border-radius: 50%;
 
-    box-shadow:
-        0 0 0 5px rgba(239, 23, 71, 0.17),
-        0 0 20px rgba(239, 23, 71, 0.72);
+  box-shadow:
+    0 0 0 5px rgba(239, 23, 71, 0.17),
+    0 0 20px rgba(239, 23, 71, 0.72);
 
-    transition:
-        box-shadow 0.18s ease,
-        transform 0.18s ease;
+  transition:
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
 }
 
 #rpe:active::-webkit-slider-thumb {
-    transform: scale(1.1);
+  transform: scale(1.1);
 
-    box-shadow:
-        0 0 0 7px rgba(239, 23, 71, 0.23),
-        0 0 25px rgba(239, 23, 71, 0.85);
+  box-shadow:
+    0 0 0 7px rgba(239, 23, 71, 0.23),
+    0 0 25px rgba(239, 23, 71, 0.85);
 }
 
 #rpe:active::-moz-range-thumb {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 #rpe:focus-visible {
-    outline: none;
+  outline: none;
 }
 
 #rpe:focus-visible::-webkit-slider-thumb {
-    box-shadow:
-        0 0 0 7px rgba(239, 23, 71, 0.3),
-        0 0 25px rgba(239, 23, 71, 0.85);
+  box-shadow:
+    0 0 0 7px rgba(239, 23, 71, 0.3),
+    0 0 25px rgba(239, 23, 71, 0.85);
 }
 
-/* Effort faible / maximal */
+#rpe:focus-visible::-moz-range-thumb {
+  box-shadow:
+    0 0 0 7px rgba(239, 23, 71, 0.3),
+    0 0 25px rgba(239, 23, 71, 0.85);
+}
+
+/* ---------------------------------------------------------
+   LIBELLÉS SOUS LA RÈGLE
+   --------------------------------------------------------- */
 
 .rpe-extremes {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    margin-top: 5px;
+  gap: 20px;
 
-    color: var(--texte-secondaire);
+  margin:
+    5px
+    var(--rpe-bord)
+    0;
 
-    font-family: "Oswald", Arial, sans-serif;
-    font-size: clamp(14px, 3.8vw, 19px);
-    line-height: 1.2;
+  color: var(--texte-secondaire);
+
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: clamp(14px, 3.8vw, 19px);
+  line-height: 1.2;
 }
 
 .rpe-extremes span:last-child {
-    text-align: right;
+  text-align: right;
 }
 
-/* Message pédagogique */
+/* ---------------------------------------------------------
+   MESSAGE PÉDAGOGIQUE
+   --------------------------------------------------------- */
 
 .rpe-help {
-    max-width: 570px;
+  max-width: 570px;
 
-    margin: 45px auto 60px;
+  margin: 42px auto 62px;
 
-    color: var(--texte-secondaire);
+  color: var(--texte-secondaire);
 
-    font-family: "Oswald", Arial, sans-serif;
-    font-size: clamp(16px, 4vw, 21px);
-    font-style: italic;
-    line-height: 1.45;
-    text-align: center;
-}
-
-/* Téléphones */
-
-@media (max-width: 430px) {
-
-    .rpe-value-display {
-        margin-bottom: 32px;
-    }
-
-    .rpe-numbers {
-        font-size: 13px;
-    }
-
-    .rpe-ruler {
-        height: 54px;
-    }
-
-    .rpe-track {
-        top: 24px;
-    }
-
-    .rpe-ticks span::before {
-        top: 11px;
-        height: 31px;
-    }
-
-    #rpe {
-        height: 54px;
-    }
-
-    .rpe-extremes {
-        font-size: 14px;
-    }
-
-    .rpe-help {
-        margin-top: 28px;
-    }
-}
-
-@media (max-width: 350px) {
-
-    .rpe-numbers {
-        font-size: 11px;
-    }
-
-    #rpe::-webkit-slider-thumb {
-        width: 27px;
-        height: 27px;
-        margin-top: -11px;
-    }
-
-    #rpe::-moz-range-thumb {
-        width: 19px;
-        height: 19px;
-    }
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: clamp(16px, 4vw, 21px);
+  font-style: italic;
+  line-height: 1.45;
+  text-align: center;
 }
 
 /* =========================================================
@@ -694,141 +696,76 @@ body {
    ========================================================= */
 
 .submit-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    width: 100%;
-    min-height: 68px;
+  width: 100%;
+  min-height: 68px;
 
-    margin-top: 8px;
-    padding: 17px 24px;
+  margin-top: 8px;
+  padding: 17px 24px;
 
-    color: var(--blanc);
-    background: #070707;
+  color: var(--blanc);
+  background: #070707;
 
-    border: 2px solid var(--rouge-clair);
-    border-radius: 18px;
+  border: 2px solid var(--rouge-clair);
+  border-radius: 18px;
 
-    font-family: "Oswald", Arial, sans-serif;
-    font-size: 23px;
-    font-weight: 700;
-    letter-spacing: 2px;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 2px;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    box-shadow:
-        0 0 15px rgba(216, 11, 53, 0.25);
+  box-shadow:
+    0 0 15px rgba(216, 11, 53, 0.25);
 
-    transition:
-        background 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .submit-button:hover,
 .submit-button:focus-visible {
-    background: var(--rouge);
+  background: var(--rouge);
 
-    box-shadow:
-        0 0 24px rgba(216, 11, 53, 0.58);
+  box-shadow:
+    0 0 24px rgba(216, 11, 53, 0.58);
 
-    outline: none;
-    transform: translateY(-2px);
+  outline: none;
+
+  transform: translateY(-2px);
 }
 
 .submit-button:active {
-    transform: scale(0.985);
+  transform: scale(0.985);
 }
+
+.submit-button:disabled {
+  opacity: 0.65;
+
+  cursor: wait;
+
+  transform: none;
+}
+
+/* =========================================================
+   MESSAGE D'ÉTAT DU FORMULAIRE
+   ========================================================= */
 
 .form-message {
-    min-height: 24px;
-
-    margin: 15px 0 0;
-
-    color: var(--texte-secondaire);
-
-    font-size: 16px;
-    text-align: center;
-}
-
-/* =========================================================
-   PETITS TÉLÉPHONES
-   ========================================================= */
-
-@media (max-width: 430px) {
-
-    .ressenti-page {
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-    .ressenti-form {
-        padding: 22px 13px;
-
-        border-radius: 20px;
-    }
-
-    .form-section {
-        margin-bottom: 41px;
-    }
-
-    .rating-grid {
-        gap: 6px;
-    }
-
-    .rating-square {
-        border-radius: 12px;
-    }
-
-    .rating-label {
-        min-height: 37px;
-
-        margin-top: 8px;
-
-        font-size: 11px;
-    }
-
-    .rpe-grid {
-        gap: 7px;
-    }
-
-    .rpe-choice span {
-        border-radius: 12px;
-    }
-}
-
-/* =========================================================
-   TRÈS PETITS ÉCRANS
-   ========================================================= */
-
-@media (max-width: 350px) {
-
-    .ressenti-form {
-        padding-right: 9px;
-        padding-left: 9px;
-    }
-
-    .rating-grid {
-        gap: 4px;
-    }
-
-    .rating-square,
-    .rpe-choice span {
-        border-width: 1.5px;
-        border-radius: 10px;
-    }
-
-    .rating-label {
-        font-size: 9.5px;
-    }
-
-   .form-message {
   min-height: 26px;
+
   margin: 16px 0 0;
-  text-align: center;
+
+  color: var(--texte-secondaire);
+
   font-size: 17px;
   font-weight: 500;
+  text-align: center;
 }
 
 .form-message.success {
@@ -843,16 +780,6 @@ body {
   color: #d5d5d5;
 }
 
-.submit-button:disabled {
-  opacity: 0.65;
-  cursor: wait;
-  transform: none;
-}
-    .rpe-grid {
-        gap: 5px;
-    }
-}
-
 /* =========================================================
    CARTE DE REMERCIEMENT
    ========================================================= */
@@ -865,12 +792,16 @@ body {
   position: relative;
 
   width: min(100%, 720px);
+
   margin: 20px auto 50px;
-  padding: clamp(38px, 7vw, 68px)
-           clamp(22px, 6vw, 58px)
-           clamp(34px, 7vw, 58px);
+
+  padding:
+    clamp(38px, 7vw, 68px)
+    clamp(22px, 6vw, 58px)
+    clamp(34px, 7vw, 58px);
 
   color: #ffffff;
+
   background:
     linear-gradient(
       180deg,
@@ -882,6 +813,7 @@ body {
   border-radius: 30px;
 
   text-align: center;
+
   overflow: visible;
 
   box-shadow:
@@ -896,11 +828,11 @@ body {
 
 .success-card::before {
   content: "";
-  position: absolute;
-  inset: 0;
 
+  position: absolute;
   z-index: 0;
-  pointer-events: none;
+
+  inset: 0;
 
   border-radius: 27px;
 
@@ -914,6 +846,8 @@ body {
       transparent 1px,
       transparent 14px
     );
+
+  pointer-events: none;
 }
 
 .success-card > * {
@@ -925,11 +859,11 @@ body {
 
 .success-stripes {
   position: absolute;
-  top: 34px;
-  left: 25px;
-  right: 25px;
-
   z-index: 1;
+
+  top: 34px;
+  right: 25px;
+  left: 25px;
 
   display: flex;
   justify-content: space-between;
@@ -955,7 +889,7 @@ body {
   transform: skewX(-20deg);
 }
 
-/* Logo officiel */
+/* Logo */
 
 .success-logo {
   display: block;
@@ -963,7 +897,10 @@ body {
   width: clamp(112px, 25vw, 165px);
   height: auto;
 
-  margin: clamp(-98px, -12vw, -72px) auto 32px;
+  margin:
+    clamp(-98px, -12vw, -72px)
+    auto
+    32px;
 
   object-fit: contain;
 
@@ -999,10 +936,11 @@ body {
   margin: 26px auto 30px;
 
   background: #df1039;
+
   border-radius: 10px;
 }
 
-/* Texte d’introduction */
+/* Introduction */
 
 .success-introduction {
   max-width: 530px;
@@ -1032,6 +970,7 @@ body {
 
 .success-separator span {
   height: 2px;
+
   background: #df1039;
 }
 
@@ -1053,6 +992,7 @@ body {
 .success-separator i::before,
 .success-separator i::after {
   content: "";
+
   position: absolute;
 
   background: #df1039;
@@ -1136,7 +1076,7 @@ body {
   text-transform: uppercase;
 }
 
-/* Retour accueil */
+/* Retour à l'accueil */
 
 .success-home-button {
   display: inline-flex;
@@ -1175,6 +1115,7 @@ body {
     0 0 22px rgba(216, 11, 53, 0.52);
 
   outline: none;
+
   transform: translateY(-2px);
 }
 
@@ -1190,16 +1131,107 @@ body {
 @keyframes successCardEntrance {
   from {
     opacity: 0;
-    transform: translateY(25px) scale(0.97);
+
+    transform:
+      translateY(25px)
+      scale(0.97);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+
+    transform:
+      translateY(0)
+      scale(1);
   }
 }
 
+/* =========================================================
+   PETITS TÉLÉPHONES
+   ========================================================= */
+
 @media (max-width: 430px) {
+  :root {
+    --rpe-bord: 15px;
+  }
+
+  .ressenti-page {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .ressenti-form {
+    padding: 22px 13px;
+
+    border-radius: 20px;
+  }
+
+  .form-section {
+    margin-bottom: 41px;
+  }
+
+  .rating-grid {
+    gap: 6px;
+  }
+
+  .rating-square {
+    border-radius: 12px;
+  }
+
+  .rating-label {
+    min-height: 37px;
+
+    margin-top: 8px;
+
+    font-size: 11px;
+  }
+
+  /* RPE */
+
+  .rpe-section {
+    margin-bottom: 0;
+  }
+
+  .rpe-value-display {
+    margin-bottom: 32px;
+  }
+
+  .rpe-numbers {
+    font-size: 13px;
+  }
+
+  .rpe-ruler {
+    height: 54px;
+  }
+
+  .rpe-track {
+    top: 24px;
+  }
+
+  .rpe-ticks {
+    height: 54px;
+  }
+
+  .rpe-ticks span::before {
+    top: 11px;
+
+    height: 31px;
+  }
+
+  #rpe {
+    height: 54px;
+  }
+
+  .rpe-extremes {
+    font-size: 14px;
+  }
+
+  .rpe-help {
+    margin: 38px auto 58px;
+  }
+
+  /* Carte de remerciement */
+
   .success-card {
     padding-right: 17px;
     padding-left: 17px;
@@ -1230,5 +1262,70 @@ body {
   .success-message {
     padding-right: 25px;
     padding-left: 25px;
+  }
+}
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+   ========================================================= */
+
+@media (max-width: 350px) {
+  :root {
+    --rpe-bord: 14px;
+  }
+
+  .ressenti-form {
+    padding-right: 9px;
+    padding-left: 9px;
+  }
+
+  .rating-grid {
+    gap: 4px;
+  }
+
+  .rating-square {
+    border-width: 1.5px;
+    border-radius: 10px;
+  }
+
+  .rating-label {
+    font-size: 9.5px;
+  }
+
+  .rpe-numbers {
+    font-size: 11px;
+  }
+
+  #rpe::-webkit-slider-thumb {
+    width: 27px;
+    height: 27px;
+
+    margin-top: -11px;
+  }
+
+  #rpe::-moz-range-thumb {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+/* =========================================================
+   RÉDUCTION DES ANIMATIONS
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
   }
 }
