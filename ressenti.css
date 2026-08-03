@@ -395,6 +395,23 @@ body {
 
     margin-right: auto;
     margin-left: auto;
+
+}
+
+.rpe-ticks span::before {
+    content: "";
+
+    position: absolute;
+    top: 12px;
+    left: 50%;
+
+    width: 2px;
+    height: 33px;
+
+    background: #e6e6e6;
+    border-radius: 4px;
+
+    transform: translateX(-50%);
 }
 
 /* Ligne horizontale neutre */
