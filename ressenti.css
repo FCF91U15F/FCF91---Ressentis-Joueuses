@@ -603,3 +603,383 @@ body {
         gap: 5px;
     }
 }
+
+/* =========================================================
+   CARTE DE REMERCIEMENT
+   ========================================================= */
+
+.success-card[hidden] {
+  display: none;
+}
+
+.success-card {
+  position: relative;
+
+  width: min(100%, 720px);
+  margin: 20px auto 50px;
+  padding: clamp(38px, 7vw, 68px)
+           clamp(22px, 6vw, 58px)
+           clamp(34px, 7vw, 58px);
+
+  color: #ffffff;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(11, 11, 11, 0.99),
+      rgba(3, 3, 3, 0.99)
+    );
+
+  border: 3px solid #df1039;
+  border-radius: 30px;
+
+  text-align: center;
+  overflow: visible;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 0 26px rgba(216, 11, 53, 0.28),
+    0 28px 70px rgba(0, 0, 0, 0.68);
+
+  animation: successCardEntrance 0.65s ease both;
+}
+
+/* Texture discrète */
+
+.success-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+  pointer-events: none;
+
+  border-radius: 27px;
+
+  opacity: 0.22;
+
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.025) 0,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+}
+
+.success-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Bandes rouges et noires */
+
+.success-stripes {
+  position: absolute;
+  top: 34px;
+  left: 25px;
+  right: 25px;
+
+  z-index: 1;
+
+  display: flex;
+  justify-content: space-between;
+
+  pointer-events: none;
+}
+
+.success-stripes span {
+  width: clamp(105px, 28%, 190px);
+  height: 22px;
+
+  opacity: 0.92;
+
+  background:
+    repeating-linear-gradient(
+      135deg,
+      #d80b35 0,
+      #d80b35 27px,
+      #171717 27px,
+      #171717 48px
+    );
+
+  transform: skewX(-20deg);
+}
+
+/* Logo officiel */
+
+.success-logo {
+  display: block;
+
+  width: clamp(112px, 25vw, 165px);
+  height: auto;
+
+  margin: clamp(-98px, -12vw, -72px) auto 32px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 12px 15px rgba(0, 0, 0, 0.7))
+    drop-shadow(0 0 10px rgba(216, 11, 53, 0.26));
+}
+
+/* Titre */
+
+.success-title {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: clamp(43px, 11vw, 78px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+.success-title span {
+  color: #df1039;
+}
+
+.success-title-line {
+  width: 82px;
+  height: 5px;
+
+  margin: 26px auto 30px;
+
+  background: #df1039;
+  border-radius: 10px;
+}
+
+/* Texte d’introduction */
+
+.success-introduction {
+  max-width: 530px;
+
+  margin: 0 auto;
+
+  color: #d5d5d5;
+
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: clamp(20px, 4.8vw, 29px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+/* Séparateurs */
+
+.success-separator {
+  display: grid;
+  grid-template-columns: 1fr 28px 1fr;
+  align-items: center;
+
+  width: 100%;
+
+  margin: clamp(31px, 7vw, 48px) 0;
+}
+
+.success-separator span {
+  height: 2px;
+  background: #df1039;
+}
+
+.success-separator i {
+  position: relative;
+
+  display: block;
+
+  width: 15px;
+  height: 15px;
+
+  margin: auto;
+
+  background: #df1039;
+
+  transform: rotate(45deg);
+}
+
+.success-separator i::before,
+.success-separator i::after {
+  content: "";
+  position: absolute;
+
+  background: #df1039;
+}
+
+.success-separator i::before {
+  top: 6px;
+  left: -7px;
+
+  width: 29px;
+  height: 3px;
+}
+
+.success-separator i::after {
+  top: -7px;
+  left: 6px;
+
+  width: 3px;
+  height: 29px;
+}
+
+/* Message personnalisé */
+
+.success-message {
+  position: relative;
+
+  max-width: 590px;
+
+  margin: 0 auto;
+  padding: 0 clamp(16px, 5vw, 42px);
+
+  color: #ffffff;
+
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: clamp(23px, 5.7vw, 34px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.45;
+
+  quotes: none;
+}
+
+.success-message::before,
+.success-message::after {
+  position: absolute;
+
+  color: rgba(255, 255, 255, 0.13);
+
+  font-family: Georgia, serif;
+  font-size: clamp(66px, 14vw, 100px);
+  font-style: normal;
+  line-height: 1;
+}
+
+.success-message::before {
+  content: "“";
+
+  top: -19px;
+  left: -2px;
+}
+
+.success-message::after {
+  content: "”";
+
+  right: 0;
+  bottom: -55px;
+}
+
+/* Signature */
+
+.success-signature {
+  margin: 0;
+
+  color: #df1039;
+
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: clamp(23px, 6vw, 34px);
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+/* Retour accueil */
+
+.success-home-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 58px;
+
+  margin-top: 38px;
+  padding: 14px 27px;
+
+  color: #ffffff;
+  background: #080808;
+
+  border: 2px solid #df1039;
+  border-radius: 16px;
+
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.success-home-button:hover,
+.success-home-button:focus-visible {
+  background: #df1039;
+
+  box-shadow:
+    0 0 22px rgba(216, 11, 53, 0.52);
+
+  outline: none;
+  transform: translateY(-2px);
+}
+
+/* Éléments cachés après l'envoi */
+
+.ressenti-header.is-hidden,
+.ressenti-form.is-hidden {
+  display: none;
+}
+
+/* Animation */
+
+@keyframes successCardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 430px) {
+  .success-card {
+    padding-right: 17px;
+    padding-left: 17px;
+
+    border-width: 2px;
+    border-radius: 23px;
+  }
+
+  .success-card::before {
+    border-radius: 21px;
+  }
+
+  .success-logo {
+    margin-top: -82px;
+  }
+
+  .success-stripes {
+    top: 27px;
+    right: 16px;
+    left: 16px;
+  }
+
+  .success-stripes span {
+    width: 31%;
+    height: 17px;
+  }
+
+  .success-message {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}
