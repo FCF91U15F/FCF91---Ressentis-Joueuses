@@ -171,17 +171,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* Mise à jour de l'affichage RPE */
 
-  const rpeInputs = form.querySelectorAll(
-    'input[name="rpe"]'
+ /* =========================================================
+   NOUVELLE RÈGLE GRADUÉE RPE
+   ========================================================= */
+
+const rpeSlider = document.getElementById("rpe");
+const rpeRuler = document.getElementById("rpeRuler");
+
+function mettreAJourRpe() {
+  if (!rpeSlider) {
+    return;
+  }
+
+  const valeur = Number(rpeSlider.value);
+  const minimum = Number(rpeSlider.min);
+  const maximum = Number(rpeSlider.max);
+
+  const pourcentage =
+    ((valeur - minimum) / (maximum - minimum)) * 100;
+
+  if (rpeValue) {
+    rpeValue.textContent = String(valeur);
+  }
+
+  if (rpeRuler) {
+    rpeRuler.style.setProperty(
+      "--rpe-position",
+      `${pourcentage}%`
+    );
+  }
+}
+
+if (rpeSlider) {
+  rpeSlider.addEventListener(
+    "input",
+    mettreAJourRpe
   );
 
-  rpeInputs.forEach((input) => {
-    input.addEventListener("change", () => {
-      if (rpeValue) {
-        rpeValue.textContent = input.value;
-      }
-    });
-  });
+  rpeSlider.addEventListener(
+    "change",
+    mettreAJourRpe
+  );
+
+  mettreAJourRpe();
+}
 
   /* Envoi du questionnaire */
 
