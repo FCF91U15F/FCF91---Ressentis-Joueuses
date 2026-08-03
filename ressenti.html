@@ -197,83 +197,79 @@
       </section>
 
       <!-- RPE -->
-      <section class="form-section">
+     <div class="form-group rpe-section">
 
-        <h2 class="section-title">
-          Ressenti de l’effort (RPE)
-        </h2>
+  <label class="rpe-title">
+    Ressenti de l'effort (RPE)
+  </label>
 
-        <div class="rpe-display">
-          <span id="rpeValue">5</span>
-          <span>/ 10</span>
-        </div>
+  <div class="rpe-value-display">
+    <span id="rpeValue">5</span>
+    <span class="rpe-total">/ 10</span>
+  </div>
 
-        <div class="rpe-grid">
+  <p class="rpe-current-label">
+    Ton ressenti actuel
+  </p>
 
-          <label class="rpe-choice">
-            <input type="radio" name="rpe" value="0">
-            <span>0</span>
-          </label>
+  <div class="rpe-scale">
 
-          <label class="rpe-choice">
-            <input type="radio" name="rpe" value="1">
-            <span>1</span>
-          </label>
+    <div class="rpe-numbers" aria-hidden="true">
+      <span>0</span>
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+      <span>6</span>
+      <span>7</span>
+      <span>8</span>
+      <span>9</span>
+      <span>10</span>
+    </div>
 
-          <label class="rpe-choice">
-            <input type="radio" name="rpe" value="2">
-            <span>2</span>
-          </label>
+    <div class="rpe-ruler">
 
-          <label class="rpe-choice">
-            <input type="radio" name="rpe" value="3">
-            <span>3</span>
-          </label>
+      <div class="rpe-ticks" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-          <label class="rpe-choice">
-            <input type="radio" name="rpe" value="4">
-            <span>4</span>
-          </label>
+      <input
+        type="range"
+        id="rpe"
+        name="rpe"
+        min="0"
+        max="10"
+        step="1"
+        value="5"
+        aria-label="Ressenti de l'effort de 0 à 10"
+        required
+      >
 
-          <label class="rpe-choice">
-            <input
-              type="radio"
-              name="rpe"
-              value="5"
-              checked
-              required
-            >
-            <span>5</span>
-          </label>
+    </div>
 
-          <label class="rpe-choice">
-            <input type="radio" name="rpe" value="6">
-            <span>6</span>
-          </label>
+    <div class="rpe-extremes">
+      <span>Effort faible</span>
+      <span>Effort maximal</span>
+    </div>
 
-          <label class="rpe-choice">
-            <input type="radio" name="rpe" value="7">
-            <span>7</span>
-          </label>
+  </div>
 
-          <label class="rpe-choice">
-            <input type="radio" name="rpe" value="8">
-            <span>8</span>
-          </label>
+  <p class="rpe-help">
+    Il n'y a ni bonne, ni mauvaise réponse, seul le ressenti personnel compte.
+  </p>
 
-          <label class="rpe-choice">
-            <input type="radio" name="rpe" value="9">
-            <span>9</span>
-          </label>
-
-          <label class="rpe-choice">
-            <input type="radio" name="rpe" value="10">
-            <span>10</span>
-          </label>
-
-        </div>
-
-      </section>
+</div>
 
       <!-- Douleur -->
       <section class="form-section">
