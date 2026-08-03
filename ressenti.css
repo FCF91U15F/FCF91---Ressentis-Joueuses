@@ -470,15 +470,19 @@ body {
 
 /* Alignement précis des graduations 0 et 10 */
 
-.rpe-ticks span:first-child::before {
-    left: 0;
-    transform: none;
-}
+.rpe-ticks span::before {
+    content: "";
 
-.rpe-ticks span:last-child::before {
-    right: 0;
-    left: auto;
-    transform: none;
+    position: absolute;
+    top: 12px;
+    left: 50%;
+
+    width: 2px;
+    height: 33px;
+
+    background: #e6e6e6;
+
+    transform: translateX(-50%);
 }
 
 /* Input invisible sauf son curseur */
@@ -609,7 +613,7 @@ body {
 .rpe-help {
     max-width: 570px;
 
-    margin: 32px auto 0;
+    margin: 45px auto 60px;
 
     color: var(--texte-secondaire);
 
