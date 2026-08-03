@@ -169,8 +169,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  /* Mise à jour de l'affichage RPE */
-
  /* =========================================================
    NOUVELLE RÈGLE GRADUÉE RPE
    ========================================================= */
