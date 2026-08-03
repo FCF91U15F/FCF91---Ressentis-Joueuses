@@ -367,7 +367,65 @@
       ></p>
 
     </form>
+    
+<!-- Carte affichée après l'envoi du questionnaire -->
+<section
+  id="successCard"
+  class="success-card"
+  aria-live="polite"
+  hidden
+>
 
+  <div class="success-stripes" aria-hidden="true">
+    <span></span>
+    <span></span>
+  </div>
+
+  <img
+    src="logo.png"
+    alt="Logo du FC Fleury 91"
+    class="success-logo"
+  >
+
+  <h2 class="success-title">
+    MERCI
+    <span id="successPlayerName"></span>
+    !
+  </h2>
+
+  <div class="success-title-line"></div>
+
+  <p class="success-introduction">
+    Merci d’avoir pris le temps de partager ton ressenti.
+  </p>
+
+  <div class="success-separator" aria-hidden="true">
+    <span></span>
+    <i></i>
+    <span></span>
+  </div>
+
+  <blockquote
+    id="successMessage"
+    class="success-message"
+  ></blockquote>
+
+  <div class="success-separator" aria-hidden="true">
+    <span></span>
+    <i></i>
+    <span></span>
+  </div>
+
+  <p class="success-signature">
+    LE STAFF U15F
+  </p>
+
+  <a href="index.html" class="success-home-button">
+    RETOUR À L’ACCUEIL
+  </a>
+
+</section>
+    
   </main>
 
   <script src="script.js?v=4"></script>
